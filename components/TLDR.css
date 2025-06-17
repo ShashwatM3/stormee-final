@@ -1,0 +1,90 @@
+.tldr-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.tldr-con {
+  height: 90%;
+  width: 90%;
+  /* background: rgb(19, 19, 19); */
+  background: rgba( 255, 255, 255, 0 );
+  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+  border: 1px solid rgb(57, 57, 57);
+  border-radius: 20px;
+  padding: 50px;
+  padding-bottom: 30px;
+}
+
+.buttonTLDR {
+  content: "How do we incorporate this"
+}
+
+.tldr-con > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.tldr-con > div > div {
+  width: 50%;
+}
+
+.tldr-con > div > div > h3 {
+  margin-bottom: 20px;
+}
+
+.tldr-con ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tldr-con li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 800px) {
+  .tldr-con > h1 {
+    font-size: 3vh;
+  }
+
+  .tldr-con > div > div > h3 {
+    font-size: 2vh;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .tldr-con {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .tldr-con > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .tldr-con > div > div {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .tldr-con li {
+    font-size: 1.7vh;
+  }
+}

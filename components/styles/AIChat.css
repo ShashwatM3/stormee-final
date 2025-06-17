@@ -1,0 +1,239 @@
+.chat-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messages {
+  /* border: 1px solid white; */
+  width: 52.93vw;
+  padding-bottom: 20px;
+  height: 80vh;
+  overflow: scroll;
+}
+/* 
+.messages::-webkit-scrollbar {
+  overflow: hidden;
+} */
+
+.inputform {
+  position: fixed;
+  bottom: 10px;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.inputfromuser {
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inputfromuser > input {
+  background: rgb(16, 16, 16);
+  outline: none;
+  border: none;
+  border: 1px solid rgb(40, 40, 40);
+  width: 25vw;
+}
+
+.messages {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.user-message, .ai-message {
+  margin-bottom: 15px;
+}
+
+.user-message > p {
+  background: white;
+  color: black;
+  padding: 7px 15px 7px 15px;
+  border-radius: 15px;
+  max-width: 30vw;
+}
+
+.ai-message > p {
+  background: rgb(34, 34, 34);
+  color: white;
+  padding: 9px 20px 9px 20px;
+  border-radius: 15px;
+  max-width: 30vw;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  height: 20px;
+  border-radius: 50%;
+  border: 8px solid #000000;
+  animation:
+    l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+
+}
+@keyframes l20-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{ 
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+.chat-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  flex-direction: column;
+  /* gap: 15px; */
+}
+
+.chat-home > h3 {
+  opacity: 65%;
+}
+
+.chat-home > h1 {
+  font-size: 7vh;
+  font-weight: 500;
+  border-bottom: 0.5px solid rgb(73, 73, 73);
+  margin-bottom: 20px;
+}
+
+.chat-home > div > div {
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid white; */
+  text-align: center;
+  background: rgb(27, 27, 27);
+  border-radius: 15px;
+  padding: 0px 15px 0px 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.chat-home > div > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.chat-home > div > div > h1 {
+  opacity: 70%;
+  font-weight: 300;
+}
+
+.chat-home > p {
+  font-size: 1.7vh;
+  opacity: 70%;
+}
+
+#success {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  animation: fadeIn 1.5s;
+}
+
+#success > h1 {
+  font-size: 6vh;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#success > h2 {
+  margin-bottom: 10px;
+}
+
+#success > h3 {
+  opacity: 70%;
+  margin-bottom: 15px;
+  margin: 0;
+  padding: 0;
+}
+/* 
+#success > div:nth-child(3) {
+  border: 1px solid grey;
+  padding: 30px;
+} */
+
+.successitems > div > span {
+  border-bottom: 1px solid rgb(69, 69, 69);
+}
+
+#success2 {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  animation: fadeIn 1.5s;
+}
+
+#success2 > h3 {
+  margin-bottom: 20px;
+  font-size: 3vh;
+  opacity: 85%;
+}
+
+#success2 > h1 {
+  font-size: 4vh;
+  font-weight: 500;
+  margin-bottom: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+#success2 > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  border-radius: 0.5rem; /* rounded-md */
+  background-color: white; /* blue-700 */
+  color: black;
+  border: none;
+  cursor: pointer;
+  border: 1px solid white;
+  outline: none;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#success2 > button:hover {
+  background-color: transparent; /* blue-800 */
+  color: white;
+}
+
+#success2 > button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #93c5fd; /* focus:ring-2 ring-blue-300 */
+}
+
+#success2 > button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

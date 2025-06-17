@@ -1,0 +1,102 @@
+.waitlist-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  animation: fadeIn 1s;
+}
+
+.waitlist-main > div {
+  width: min(90%, 600px);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: clamp(20px, 5vw, 60px);
+  border: 1px solid rgb(60, 60, 60);
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgb(57, 57, 57);
+  transition: 0.3s ease-in-out;
+}
+
+.waitlist-main > div:hover {
+  background: rgba( 255, 255, 255, 0 );
+  box-shadow: 0 8px 32px 0 rgba(62, 193, 229, 0.448);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgb(57, 57, 57);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.waitlist-main > div > h1 {
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+}
+
+.waitlist-main > div > h2 {
+  margin-bottom: 30px;
+  font-weight: 200;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.waitlist-main > div > h3 {
+  color: rgb(165, 165, 165);
+  margin-bottom: 20px;
+  width: min(90%, 80%);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+#email-waitlist {
+  width: min(100%, 70%);
+  background: rgb(33, 33, 33);
+  border: none;
+  outline: none;
+  color: white;
+}
+
+#s2 {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .waitlist-main > div {
+    padding: 50px 30px;
+  }
+  
+  .waitlist-main > div > h1 {
+    margin-bottom: 15px;
+  }
+  
+  .waitlist-main > div > h2 {
+    margin-bottom: 20px;
+  }
+  
+  .waitlist-main > div > h3 {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #s1 > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #s1 > div > input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

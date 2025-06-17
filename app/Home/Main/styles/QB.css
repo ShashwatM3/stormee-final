@@ -1,0 +1,118 @@
+.qb-main {
+  background: #171616; /* greyish background */
+  width: 50%;
+  padding: 30px 25px;
+  height: 20vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.qb-main > h1 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.qb-main > div > input {
+  /* background: #1a1a1a; */
+  outline: none;
+  border-bottom: 1px solid #3a3a3a;
+  width: 80%;
+  padding: 12px;
+  /* border-radius: 10px; */
+  color: #ffffff;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.qb-main > div > input::placeholder {
+  color: #888;
+}
+
+.qb-main > div > input:focus {
+  border-bottom: 1px solid #5a5a5a;
+}
+
+.qb-main > div > button {
+  border: 1px solid rgb(82, 77, 77);
+}
+
+.qb-main > div > button:hover {
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+.qb-chat {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+.qb-chat-main {
+  height: 70%;
+  width: 50%;
+  background: #111111;
+  border: 1px solid #2F2F2E;
+  padding: 20px 25px 15px 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+
+.qb-chat-main > div:nth-child(1) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(44, 42, 42);
+  text-align: center;
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* .qb-chat-main > div:nth-child(1) > h1 {
+  font-size: 3.5vh;
+  margin: 10px 10px;
+} */
+
+.qb-chat-main > div:nth-child(1) > h3 {
+  opacity: 70%;
+  font-size: 4vh;
+  margin: 10px 10px;
+  font-weight: 200;
+}
+
+.qb-chat-main > div:nth-child(2) {
+  height: 43vh;
+  border: 1px solid rgb(50, 50, 50);
+  width: 90%;
+  border-radius: 20px;
+}
+
+.qb-chat-main > div:nth-child(3) {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.qb-chat-main > div:nth-child(3) > input {
+  width: 60%;
+}

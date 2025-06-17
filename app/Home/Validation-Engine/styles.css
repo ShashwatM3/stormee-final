@@ -1,0 +1,190 @@
+#loading-validation {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#loading-validation > div > h1 {
+  animation: fadeInOut 1.8s infinite;
+  font-size: 3vh;
+  margin-bottom: 10px;
+}
+
+.validationTitle {
+  font-family: "Poppins";
+}
+
+#loading-validation > div > h3 {
+  /* animation: fadeInOut 1.8s infinite; */
+  font-size: 2vh;
+  text-align: center;
+  opacity: 50%;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 50%;
+  } 50% {
+    opacity: 100%;
+  } 100% {
+    opacity: 50%;
+  }
+}
+
+.validation-main {
+  display: flex;
+  /* align-items: center; */
+  min-height: 110vh;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.validation-main > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.validation-main > div > h1 {
+  font-family: "Poppins";
+}
+
+.metrics-validate {
+  gap: 10px;
+}
+
+.metric {
+  height: 13vh;
+  background: #181717;
+  border: 1px solid #2F2F2E;
+  width: 100%;
+  border-radius: 15px;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.metric > div > h1 {
+  font-weight: 600;
+}
+
+.metric > div > h3 {
+  opacity: 50%;
+  margin-top: 5px;
+}
+
+.personas-validate {
+  gap: 10px;
+  display: flex;
+  align-items: start;
+}
+
+.personas-validate > div {
+  min-height: 30vh;
+  background: #1C1C1C;
+  border: 1px solid #2F2F2E;
+  width: 100%;
+  border-radius: 15px;
+  padding: 25px 30px;
+}
+
+.personas-validate > div > div > h1 {
+  font-size: 2vh;
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+
+.personas-validate > div > h3 {
+  opacity: 70%;
+}
+
+.avatar-persona {
+  height: 4vh;
+  width: auto;
+}
+
+.metric-dashboard {
+  position: fixed;
+  background: rgb(14,14,14);
+  top:0;
+  left:0;
+  height: 100vh;
+  z-index: 50;
+  width: 100vw;
+  display: flex;
+  align-items: start;
+  padding-top: 10vh;
+  justify-content: center;
+  display: none;
+  animation: fadeIn 0.3s;
+  overflow: scroll;
+}
+
+#market-demand-main {
+  /* display: flex; */
+}
+
+.metric-dashboard > div > h1 {
+  text-align: center;
+}
+
+.metric-dashboard > div > div {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  /* flex-direction: column; */
+}
+
+.metric-dashboard > div > div > div > div {
+  background-color: #181717;
+  border: 1px solid #2F2F2E;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.metric-dashboard > div > div > div > div h1 {
+  font-weight: bold;
+}
+
+.card-optim {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.card-optim p {
+  color: red;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #1aa34a;
+  border-radius: 50%;
+  display: inline-block;
+  animation: 3s blink infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  } 25% {
+    opacity: 0;
+  } 50% {
+    opacity: 1;
+  } 75% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
+}

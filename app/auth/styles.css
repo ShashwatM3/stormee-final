@@ -1,0 +1,121 @@
+.auth-main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.auth-main > div {
+  width: 50%;
+}
+
+.auth-main > div:nth-child(1) {
+  /* padding: 30px;
+  background: rgb(19, 19, 19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 40px; */
+  background-image: url('/bgbanner.png');
+  background-size: cover;
+  background-position: left;
+}
+
+.auth-main > div:nth-child(2) > h1 {
+  font-style: italic;
+  font-size: 3vh;
+}
+
+.auth-main > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-main > div:nth-child(2) > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-main > div:nth-child(2) > div > h3 {
+  opacity: 60%;
+}
+
+.auth-main > div:nth-child(2) > div > input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border: 1px solid rgb(40, 40, 40);
+}
+
+.button-register {
+  /* margin-bottom: 15px; */
+  width: 100%;
+}
+
+.auth-main > div:nth-child(2) > div > h4 {
+  font-size: 1.5vh;
+  opacity: 50%;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  width: 400px; /* Adjust as needed */
+  color: #aaa; /* Light grey text */
+  font-size: 14px;
+  /* letter-spacing: 1px; */
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #444; /* Line color */
+  margin: 0 10px;
+}
+
+.google-register {
+  background: rgb(35, 35, 35);
+  cursor: pointer;
+}
+
+.google-register:hover {
+  background: rgb(46, 46, 46);
+}
+
+#stage-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stage-two > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#stage-two > div > h3 {
+  opacity: 60%;
+}
+
+#stage-two > div > input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border: 1px solid rgb(40, 40, 40);
+}
+
+#stage-two > div:nth-child(2) > div > h4 {
+  font-size: 1.5vh;
+  opacity: 50%;
+}
+
+#stage-two {
+  display: none;
+}

@@ -1,0 +1,27 @@
+.vrr-main {
+  background: rgb(34, 34, 34); /* greyish background */
+  width: 50%;
+  height: 20vh;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.vrr-main > h1 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.vrr-main > h3 {
+  margin-bottom: 5px;
+  width: 70%;
+  color: rgb(137, 137, 137);
+}

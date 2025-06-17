@@ -1,0 +1,90 @@
+.business-canvas {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3vh
+}
+
+#businesscanvas {
+  display: none;
+}
+
+.business-canvas > div {
+  width: 100%;
+}
+
+.business-canvas > div > div > div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.idea-component {
+  background: rgb(24, 24, 24);
+  border: 1px solid rgb(53, 52, 52);
+  padding: 20px;
+  border-radius: 10px;
+  width: 28vw;
+}
+
+.idea-component > div > button {
+  margin-top: 20px;
+  width: 20%;
+}
+
+.idea-component > h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.idea-component > h3 {
+  opacity: 65%;
+}
+
+.competitor-div {
+  padding: 20px;
+  text-align: center;
+}
+
+.fixed-sections {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  pointer-events: none;
+}
+
+.fixed-sections > div {
+  background: rgb(29, 29, 29);
+  border: 1px solid rgb(67, 67, 67);
+  padding: 30px 40px 20px 30px;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  pointer-events: auto;
+}
+
+.fixed-sections > div > h1 {
+  font-weight: bold;
+  font-size: 2vh;
+  margin-bottom: 20px;
+}
+
+.fixed-sections > div > h3 {
+  cursor: pointer;
+  opacity: 65%;
+  margin-bottom: 10px;
+}
+
+#hiddensections {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+#toshowbutton {
+  animation: fadeIn 0.4s;
+  padding: 15px;
+}

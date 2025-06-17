@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* .banner {
+  padding: 0px 30px 0px 30px;
+}
+
+.banner-main {
+  height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: black;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-main::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#f3f3f362 1px, transparent 1px);
+  background-size: 20px 20px;
+  backdrop-filter: brightness(80%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  width: 50%;
+  max-width: 600px;
+}
+
+.banner-content h1 {
+  font-size: 6vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.banner-content h1 span {
+  color: #d0a5ff; 
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #dcdcdc;
+  margin-bottom: 30px;
+}
+
+.banner-content > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.banner-content > div > button {
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+} */
+
+.banner-main {
+  display: flex; 
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  background: rgb(10, 10, 10);
+  /* background: linear-gradient(0deg, rgb(17, 17, 17) 60%, rgba(10, 10, 112, 1) 100%); */
+  justify-content: center;
+  /* border-bottom: 1px solid white; */
+}
+
+.banner-main > div {
+  width: 90%;
+  text-align: center;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/bgbanner.png');
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  /* background-attachment: fixed; */
+  border-radius: 30px;
+}
+
+.banner-main > div:nth-child(1) > div {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid white; */
+}
+
+.banner-main > div:nth-child(1) > div > h1 {
+  font-family: "Giest", sans-serif;
+  line-height: 110%;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.banner-main > div:nth-child(1) > div > h1 > span:nth-child(1) {
+  color: rgb(120, 62, 237);
+}
+
+.banner-main > div:nth-child(1) > div > h3 {
+  font-size: 2.3vh;
+  font-family: "Poppins", sans-serif;
+  opacity: 70%;
+  margin-bottom: 20px;
+  width: 505;
+}
+
+.banner-main > div:nth-child(2) > div {
+  height: 43vh;
+  width: 40vw;
+  background: rgb(52, 52, 52);
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 900px) {
+  .banner-main > div {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .banner-main > div:first-child > div > h3 {
+    font-size: 2vh;
+    width: 90%;
+  }
+
+  .banner-main > div {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .banner-main > div:first-child > div > h1 {
+    font-size: 4vh;
+  }
+
+  .banner-main {
+    height: 90vh
+  }
+}
+
+/* .banner-main {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 10vh;
+  width: 100%;
+}
+
+.banner-main > div {
+  width: 90%;
+  height: 60vh;
+  border-radius: 30px;
+  border: 1px solid rgb(37, 37, 37);
+  margin: 0;
+  background-image: url('/bgbanner.png');
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-main > div > h1 {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 8vh;
+  width: 70%;
+  text-align: center;
+  font-weight: 400;
+  line-height: 120%;
+} */
+
+/* .banner-main > div::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 30% 30%, #ff00ff44, transparent 70%),
+              radial-gradient(circle at 70% 80%, #0066ff33, transparent 70%);
+  filter: blur(100px);
+  z-index: -1;
+} */

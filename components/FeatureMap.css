@@ -1,0 +1,72 @@
+.feature-map-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.feature-map-main > div {
+  width: 70%;
+  text-align: center;
+}
+
+.feature-map-main > div > h1 {
+  margin-bottom: 20px;
+}
+
+.feature-map-main > div > h3 {
+  font-size: 2.5vh;
+  font-weight: 200;
+}
+
+.features {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.features > div {
+  width: 20vw;
+  text-align: left;
+  background: rgb(15, 15, 15);
+  min-height: 28vh;
+}
+
+@media only screen and (max-width: 970px) {
+  .features {
+    gap: 10px;
+  }
+
+  .features > div {
+    width: 30vw;
+    height: 30vh;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .features > div {
+    width: 40vw;
+    height: 30vh;
+  }
+  .feature-map-main > div {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .features {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .features > div {
+    width: 100%;
+  }
+}

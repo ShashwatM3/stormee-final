@@ -1,0 +1,34 @@
+/* .es-main {
+  padding-right: 20px;
+  padding-left: 10px;
+} */
+
+.bc-main > h1 {
+  font-size: 30px;
+  margin-left: 2px;
+}
+
+.bc-main > h3 {
+  font-size: 15px;
+  margin-left: 2px;
+  color: #8D8D8D;
+  margin-bottom: 20px;
+}
+
+.bc-ch-con {
+  display: flex;
+  gap: 10px;
+  padding: 7px 10px;
+  background: #222121;
+  border: 1px solid #2F2F2E;
+  width: fit-content;
+  border-radius: 9px;
+}
+
+#main-content-bc {
+  height: 45vh;
+  border: 1px solid #2F2F2E;
+  background: #181717;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}

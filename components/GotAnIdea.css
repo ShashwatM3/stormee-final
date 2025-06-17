@@ -1,0 +1,43 @@
+.got-an-idea-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+}
+
+.got-an-idea-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.got-an-idea-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  width: 30vw;
+}
+
+.got-an-idea-description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.got-an-idea-button {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.got-an-idea-button:hover {
+  transform: translateY(-2px);
+}
