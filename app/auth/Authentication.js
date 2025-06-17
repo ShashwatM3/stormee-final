@@ -112,7 +112,7 @@ function Authentication() {
           <h3 className=''>Your journey from 4 to 10 starts here.</h3>
         </div> */}
       </div>
-      <div id="stage-one">
+      <div id="stage-one" className='wo'>
         <div>
           <h1 className='scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0'>Create an account</h1>
           <h3>Enter your email below to create your account</h3>
