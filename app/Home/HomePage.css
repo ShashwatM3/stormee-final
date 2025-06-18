@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
 }
 
 .hpm-1 {
@@ -134,7 +134,7 @@
 
 #form4, #form5 {
   height: 10vh;
-  background: transparent;
+  /* background: transparent; */
   border-radius: 0px 10px;
   text-align: left;
   resize: none;

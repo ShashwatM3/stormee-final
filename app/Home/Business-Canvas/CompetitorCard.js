@@ -55,12 +55,14 @@ const CompetitorCard = ({ name, description, failureReason, lesson, year, locati
       </div>
 
       <div className="mb-1">
-        <h3 className="font-semibold text-green-400 mb-1">What you can learn from this</h3>
+        <h3 className="font-semibold text-green-400 mb-3">What you can learn from this</h3>
         <Dialog>
-          <DialogTrigger>Key Insights</DialogTrigger>
+          <DialogTrigger asChild>
+            <Button className="dark">Key Insights</Button>
+          </DialogTrigger>
           <DialogContent className="dark">
             <DialogHeader>
-              <DialogTitle>What you can <i>learn</i> from this failure</DialogTitle>
+              <DialogTitle className="mb-3">What you can <i>learn</i> from this failure</DialogTitle>
               <DialogDescription>
                 {lesson.substring(lesson.indexOf(": ")+1)}
               </DialogDescription>

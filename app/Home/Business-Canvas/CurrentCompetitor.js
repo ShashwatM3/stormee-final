@@ -20,8 +20,10 @@ const CurrentCompetitor = ({
   //   console.log(sources)
   // }
   // console.log("----------CurrentCompetitors---------")
+  // console.log(strengths);
+  // console.log(weaknesses);
   return (
-    <Card className="bg-neutral-900 min-h-[60vh] border-neutral-800 w-[45vw] text-white p-8 rounded-2xl shadow-lg max-w-xl mb-3 text-left">
+    <Card className="bg-neutral-900 min-h-[60vh] border-neutral-800 w-[48vw] text-white p-8 rounded-2xl shadow-lg max-w-xl mb-3 text-left">
       <h2 className="text-3xl border-b border-neutral-600 pb-3 font-extrabold mb-2">{name}</h2>
       
       <div className="mb-4">
@@ -56,9 +58,12 @@ const CurrentCompetitor = ({
       </div>
 
       <div className="mb-1">
-        <h3 className="font-semibold text-green-400 mb-1">What you can learn from this - <span className="italic font-light">Key Insight</span></h3>
+        <h3 className="font-semibold text-green-400 mb-3"><span className="italic font-light">Key Insights to be inferred</span></h3>
+        <div className="flex gap-2">
         <Dialog>
-          <DialogTrigger>Key Insights</DialogTrigger>
+          <DialogTrigger asChild>
+            <Button className="dark bg-transparent" variant="outline">Key Insights</Button>
+          </DialogTrigger>
           <DialogContent className="dark">
             <DialogHeader>
               <DialogTitle>Key Points</DialogTitle>
@@ -68,6 +73,41 @@ const CurrentCompetitor = ({
             </DialogHeader>
           </DialogContent>
         </Dialog>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="dark bg-transparent" variant="outline">Strengths</Button>
+          </DialogTrigger>
+          <DialogContent className="dark">
+            <DialogHeader>
+              <DialogTitle>Key Strengths of {name}</DialogTitle>
+              <DialogDescription>
+                {strengths.map((strength) => (
+                  <div key={strength} className="mt-2">
+                    <li>{strength}</li>
+                  </div>
+                ))}
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="dark bg-transparent" variant="outline">Weaknesses</Button>
+          </DialogTrigger>
+          <DialogContent className="dark">
+            <DialogHeader>
+              <DialogTitle>Key Weaknesses of {name}</DialogTitle>
+              <DialogDescription>
+                {weaknesses.map((weak) => (
+                  <div key={weak} className="mt-2">
+                    <li>{weak}</li>
+                  </div>
+                ))}
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+        </div>
       </div>
 
       {/* <div className="flex justify-between items-center text-sm text-gray-400 mt-0"> */}
@@ -80,7 +120,7 @@ const CurrentCompetitor = ({
         <div>
         <h1 className="scroll-m-20 mb-4 pb-0 text-2xl font-bold tracking-tight text-balance">Source(s)</h1>
         {sources.map((source, index) => (
-          <Button onClick={() => {window.open(source.url)}} className="dark" key={index}>{`${source.title.substring(0, 20)}..` || `Source ${index + 1}`}</Button>
+          <Button onClick={() => {window.open(source.url)}} className="dark mr-2" key={index}>{`${source.title.substring(0, 20)}..` || `Source ${index + 1}`}</Button>
         ))}
         </div>
 

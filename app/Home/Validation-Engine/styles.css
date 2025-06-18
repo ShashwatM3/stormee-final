@@ -1,7 +1,7 @@
 #loading-validation {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -13,7 +13,7 @@
 }
 
 .validationTitle {
-  font-family: "Poppins";
+  font-family: "Giest", sans-serif;
 }
 
 #loading-validation > div > h3 {
@@ -36,7 +36,7 @@
 .validation-main {
   display: flex;
   /* align-items: center; */
-  min-height: 110vh;
+  min-height: 92vh;
   justify-content: center;
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -50,7 +50,7 @@
 }
 
 .validation-main > div > h1 {
-  font-family: "Poppins";
+  font-family: "Giest", sans-serif;
 }
 
 .metrics-validate {
@@ -59,7 +59,8 @@
 
 .metric {
   height: 13vh;
-  background: #181717;
+  /* background: #181717; */
+  background: #111010;
   border: 1px solid #2F2F2E;
   width: 100%;
   border-radius: 15px;
@@ -87,7 +88,7 @@
 
 .personas-validate > div {
   min-height: 30vh;
-  background: #1C1C1C;
+  background: #181717;
   border: 1px solid #2F2F2E;
   width: 100%;
   border-radius: 15px;
@@ -119,7 +120,7 @@
   width: 100vw;
   display: flex;
   align-items: start;
-  padding-top: 10vh;
+  padding-top: 14vh;
   justify-content: center;
   display: none;
   animation: fadeIn 0.3s;

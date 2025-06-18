@@ -446,8 +446,9 @@ function BusinessMain() {
   return (
     <div className='business-canvas'>
       <div>
+        <br/>
         <h1 className='scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance mb-10'>The Competitive Landscape</h1>
-        <h1 className='scroll-m-20 text-xl font-semibold tracking-tight mb-5 text-center'>Your Current Idea</h1>
+        <h1 className='scroll-m-20 text-2xl font-semibold tracking-tight mb-7 text-center'><span className='px-6 py-3 bg-neutral-900 rounded-md'>Your Current Idea</span></h1>
         <div className='flex items-start justify-center gap-4 flex-wrap px-10'>
           {(idea && targetaudience && problemstatement && uniqueness && features) ? (
             <>

@@ -46,7 +46,7 @@ function Banner() {
       <div>
         <div>
           {/* <h1 className='scroll-m-20 text-4xl tracking-tight lg:text-6xl'>Transform an idea of <span>less than 10 words</span> to a <AuroraText>beautiful</AuroraText> MVP Dashboard with Validation Metrics</h1> */}
-          <h1 className='scroll-m-20 text-4xl tracking-tight lg:text-6xl'>Deep Market Analysis and Multi-perspective Valdiation. Delivered in Minutes.</h1>
+          <h1 className='scroll-m-20 text-4xl tracking-tight lg:text-5xl px-10'>Deep Market Analysis and Multi-perspective Valdiation. Delivered in <AuroraText>Minutes</AuroraText>.</h1>
           <h3>Use Stormee AI to give your idea a backbone, through a stage-wise structured process. Jumpstart your product development journey.</h3>
           <div className='flex gap-2'>
             <Button onClick={() => {

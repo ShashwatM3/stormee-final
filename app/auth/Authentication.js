@@ -60,7 +60,7 @@ function Authentication() {
         console.log("SignIn result:", result);
 
         if (result?.error) {
-          console.error("SignIn error:", result.error);
+          toast.error("SignIn error:", result.error);
           alert(`Login failed: ${result.error}`);
           return;
         }
@@ -68,7 +68,17 @@ function Authentication() {
         // Only insert into Supabase if signIn was successful
         if (result?.ok) {
           try {
-            const { error } = await supabase
+
+            const { data, error:err } = await supabase
+            .from('Users')
+            .select()
+            .eq("email", email);
+            console.log(data);
+
+            if (data.length>0) {
+              toast.success("You already have an acount existent with your email");
+            } else {
+              const { error } = await supabase
               .from('Users')
               .insert({ 
                 email: email, 
@@ -82,10 +92,11 @@ function Authentication() {
                 Stage: "Tutorial",
                 final: "",
               });
+              toast.success("Welcome to Stormee AI!");
 
-            if (error) {
-              console.error("Supabase error:", error);
-              // Don't block the user if Supabase insert fails
+              if (error) {
+                toast.error(error);
+              }
             }
           } catch (supabaseError) {
             console.error("Supabase error:", supabaseError);

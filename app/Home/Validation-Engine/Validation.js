@@ -221,15 +221,15 @@ function Validation() {
 
         Respond strictly in the below format:
         {
-          "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Strong, Moderate, Weak)),
+          "score": ["....", "...."] (The first element is a number from 1 to 10 that corresponds to score out of 10. The second element corresponds to label(Strong, Moderate, Weak)),
           "indicators": ["I1: {indicator 1}", "I2: {indicator 2}", "I3: {indicator 3}"] (This array corresponds to 3 key indicators (with metric, value, and insight)),
           "red_flags": ["R1: {red flag 1}", "R2: {red flag 2}"] (red flags or limitations pertaining to idea in context of the market demand),
           "optimization_strategies": ["O1: {optimization 1}", "O2: {optimization 2}", "P1: {pivot 1}"] (The first two elements of this correspond to other ways to optimize or strengthen market demand, and the third element of this corresponds to a powerful pivot with same idea different angle(s) and so that the idea can focus on a niche where the pain is stronger),
-          "summary": "Synthesize the information given above from indicators, red flags, optimization strategies, into a 2 to 3 line tldr",
-          "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (This corresponds to the 2-3 external sources with the format "name, url" which prove the information you have given to generate the information above pertaining to the market demand of the user's idea),
+          "summary": "Synthesize the information given above from indicators, red flags, optimization strategies, into a 1-2 line tldr",
+          "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the market demand analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF MARKET DEMAND.
+        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF MARKET DEMAND.
       `);
 
       const start = resp.indexOf('{');
@@ -322,14 +322,14 @@ function Validation() {
         Respond strictly in the below format:
         {
           "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Defensible, Marginal, Weak)),
-          "edge_metrics": ["M1: {metric 1}", "M2: {metric 2}", "M3: {metric 3}"] (This array corresponds to 3 competitive edge metrics with value and insight),
+          "edge_metrics": ["M1: {metric 1. 1 line long strictly}", "M2: {metric 2. 1 line long strictly}", "M3: {metric 3. 1 line long strictly}"] (This array corresponds to 3 competitive edge metrics with value and insight),
           "red_flags": ["R1: {red flag 1}", "R2: {red flag 2}"] (competitive risks like replicability, reliance on trend, or saturated positioning),
-          "optimization_strategies": ["O1: {strategy 1}", "O2: {strategy 2}", "P1: {pivot 1}"] (First two elements are strategies to strengthen moat, third is a pivot suggestion),
-          "summary": "A 2-3 line summary on whether this idea stands out meaningfully in its space",
+          "optimization_strategies": ["O1: {strategy 1}", "O2: {strategy 2}", "P1: {pivot 1}"] (First two elements are strategies to strengthen moat, third is a pivot suggestion. Both must be in context of application to given startup idea),
+          "summary": "A 1-2 line summary on whether this idea stands out meaningfully in its space",
           "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the competitive analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF COMPETITIVE EDGE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Strictly follow the output format given. Strictly avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF COMPETITIVE EDGE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
       `);
 
       const start = resp.indexOf('{');
@@ -417,12 +417,12 @@ function Validation() {
           "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Focused, Generic, Vague)),
           "empathy_markers": ["M1: {marker 1}", "M2: {marker 2}", "M3: {marker 3}"] (3 points on emotional need, behavioral pattern, and urgency of pain),
           "red_flags": ["R1: {red flag 1}", "R2: {red flag 2}"] (clarity pitfalls like overly broad demographics),
-          "optimization_strategies": ["O1: {strategy 1}", "P1: {pivot 1}"] (One strategy to improve clarity, one micro-pivot for sharper niche),
-          "summary": "2-3 line summary evaluating target audience clarity and specificity",
+          "optimization_strategies": ["O1: {strategy 1}", "P1: {pivot 1}"] (One strategy to improve clarity, one micro-pivot for sharper niche. Both must be in context of application to given startup idea),
+          "summary": "1-2 line summary evaluating target audience clarity and specificity",
           "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the audience analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF TARGET AUDIENCE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF TARGET AUDIENCE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
       `);
 
       const start = resp.indexOf('{');
@@ -524,12 +524,12 @@ function Validation() {
         Respond strictly in the below format:
         {
           "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Strong, Moderate, Weak)),
-          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing market size, differentiation, scalability, and monetizability),
-          "summary": "2-3 line synthesis of the feedback above",
+          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing market size, differentiation, scalability, and monetizability of the idea and how idea can be optimized in this context),
+          "summary": "1-2 line synthesis of the feedback above",
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the investor perspective)
         }
 
-        Strict Guidelines: Be brutally honest and realistic. Avoid using the em dash (—) in your generated content. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be brutally honest and realistic. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
       `);
       console.log("Prompt 1 DONE WOOHOO")
 
@@ -545,12 +545,12 @@ function Validation() {
         Respond strictly in the below format:
         {
           "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Strong, Moderate, Weak)),
-          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing user-centricity, feature feasibility, roadmap clarity, and MVP scope),
-          "summary": "2-3 line synthesis of the feedback above",
+          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing user-centricity, feature feasibility, roadmap clarity, and MVP scope and how idea can be optimized in this context),
+          "summary": "1-2 line synthesis of the feedback above",
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the product perspective)
         }
 
-        Strict Guidelines: Be direct and unfiltered. Avoid using the em dash (—) in your generated content. Each feedback point must be under 10 words and powerful. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be direct and unfiltered. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and powerful. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
       `);
       console.log("Prompt 2 DONE WOOHOO")
 
@@ -566,12 +566,12 @@ function Validation() {
         Respond strictly in the below format:
         {
           "score": ["....", "...."] (The first element corresponds to score out of 10. The second element corresponds to label(Strong, Moderate, Weak)),
-          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing implementation feasibility, architecture, bottlenecks, and security),
-          "summary": "2-3 line synthesis of the feedback above",
+          "feedback": ["F1: {feedback 1}", "F2: {feedback 2}", "F3: {feedback 3}"] (3 powerful, direct sentences assessing implementation feasibility, architecture, bottlenecks, and security and how idea can be optimized in this context),
+          "summary": "1-2 line synthesis of the feedback above",
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the technical perspective)
         }
 
-        Strict Guidelines: Be honest and concise. Avoid using the em dash (—) in your generated content. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be honest and concise. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
       `);
       console.log("got prompts yayy (personas)")
 
@@ -788,9 +788,8 @@ function Validation() {
                 })()}
               </h3>
               <br/>
-              <div className='flex items-center justify-center min-h-[50vh] w-[60vw]'>  
-                <div className='w-[30vw] mr-2'>
-
+              <div className='flex items-center justify-center min-h-[50vh] w-[70vw]'>  
+                <div className='w-[40vw] mr-2'>
                   <div className='min-h-[20vh]'>
                     <div className='flex items-center justify-between mb-10'>
                       <h1>TL;DR</h1>
@@ -813,21 +812,41 @@ function Validation() {
                       </DialogTrigger>
                       <DialogContent className='dark text-white'>
                         <DialogHeader>
-                          <DialogTitle className='mb-4'>Some barriers you should consider</DialogTitle>
+                          <DialogTitle className='mb-2'>Some barriers you should consider</DialogTitle>
                         </DialogHeader>
                         {getArrayData(marketDemandRedFlags).map((redFlag, index) => (
-                              <div className='opacity-[60%]' key={index}>
-                                <span key={index}>{redFlag.split(": ")[1]}</span>
-                                <br/>
-                              </div>
-                            ))}
+                          <div className='opacity-[60%]' key={index}>
+                            <span>{redFlag.split(": ")[1]}</span>
+                          </div>
+                        ))}
                       </DialogContent>
                     </Dialog>
                   </div>
 
                   {/* Suggestions */}
                   <div className='min-h-[10vh]'>
-                    <h3 className='font-bold'>Some suggestions on how you can optimize and make your idea more powerful</h3><br/>
+                    {(() => {
+                      const scoreData = getScoreData(marketDemandScore);
+                      return (
+                        <>
+                          {scoreData.label.includes("Strong") && (
+                            <>
+                              <h3 className='font-bold'>Some suggestions on how you can maximize your market demand</h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Moderate") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your market demand from Moderate to <span className='text-green-500'>Strong</span></h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Weak") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your market demand from Weak to <span className='border-b pb-4'>Strong</span></h3><br/>
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
                     <Dialog>
                       <DialogTrigger asChild>
                         <Button className='dark'>Check Suggestions</Button>
@@ -847,7 +866,7 @@ function Validation() {
                   </div>
 
                 </div>
-                <div className='w-[30vw]'>
+                <div className='w-[40vw]'>
 
                   {/* Indicators */}
                   <div className='min-h-[20vh]'>
@@ -855,11 +874,10 @@ function Validation() {
                       <span className='dot'/>
                       <h1 className=''>Indicators</h1>
                     </div>
-                    <h3 className='opacity-[60%]'>
+                    <h3 className='opacity-[60%] border-t border-neutral-600 pt-4'>
                       {getArrayData(marketDemandIndicators).map((indicator, index) => (
-                        <div key={index}>
+                        <div key={index} className='border-b border-neutral-600 pb-4 mb-4'>
                           <li key={index}>{indicator.split(": ")[1]}</li>
-                          <br/><br/>
                         </div>
                       ))}
                     </h3>
@@ -947,8 +965,8 @@ function Validation() {
                 })()}
               </h3>
               <br/>
-              <div className='flex items-center justify-center min-h-[50vh] w-[60vw]'>  
-                <div className='w-[30vw] mr-2'>
+              <div className='flex items-center justify-center min-h-[50vh] w-[70vw]'>  
+                <div className='w-[40vw] mr-2'>
                   <div className='min-h-[20vh]'>
                     <div className='flex items-center justify-between mb-10'>
                       <h1>TL;DR</h1>
@@ -984,7 +1002,28 @@ function Validation() {
 
 
                   <div className='min-h-[10vh]'>
-                    <h3 className='font-bold'>Some suggestions on how you can optimize and make your idea more powerful</h3><br/>
+                    {(() => {
+                      const scoreData = getScoreData(targetAudienceScore);
+                      return (
+                        <>
+                          {scoreData.label.includes("Focused") && (
+                            <>
+                              <h3 className='font-bold'>Some suggestions on how you can make your target audience sharper</h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Generic") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your target audience from Generic to <span className='text-green-500'>Focused</span></h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Vague") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your target audience from Vague to <span className='border-b pb-4'>Focused</span></h3><br/>
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
                     <Dialog>
                       <DialogTrigger asChild>
                         <Button className='dark'>Check Suggestions</Button>
@@ -1004,17 +1043,17 @@ function Validation() {
                   </div>
                 </div>
 
-                <div className='w-[30vw]'>
+                <div className='w-[40vw]'>
 
                   <div className='min-h-[20vh]'>
                     <div className='flex items-center gap-2 mb-5'>
                       <span className='dot'/>
                       <h1 className=''>Emotional Drivers</h1>
                     </div>
-                    <h3 className='opacity-[60%]'>
+                    <h3 className='opacity-[60%] border-t border-neutral-600 pt-4'>
                       {getArrayData(targetAudienceEmpathyMarkers).map((marker, index) => (
-                        <div key={index} className='mb-3'>
-                          <span>{marker.substring(marker.indexOf(": ")+2)}</span>
+                        <div key={index} className='border-b border-neutral-600 pb-4 mb-4'>
+                          <span>&#x2022;&nbsp;&nbsp;{marker.substring(marker.indexOf(": ")+2)}</span>
                         </div>
                       ))}
                     </h3>
@@ -1101,8 +1140,8 @@ function Validation() {
                 })()}
               </h3>
               <br/>
-              <div className='flex items-center justify-center min-h-[50vh] w-[60vw]'>  
-                <div className='w-[30vw] mr-2'>
+              <div className='flex items-center justify-center min-h-[50vh] w-[70vw]'>  
+                <div className='w-[40vw] mr-2'>
                   <div className='min-h-[20vh]'>
                     <div className='flex items-center justify-between mb-10'>
                       <h1>TL;DR</h1>
@@ -1138,7 +1177,28 @@ function Validation() {
 
 
                   <div className='min-h-[10vh]'>
-                    <h3 className='font-bold'>Some suggestions on how you can optimize and make your idea more powerful</h3><br/>
+                    {(() => {
+                      const scoreData = getScoreData(competitiveEdgeScore);
+                      return (
+                        <>
+                          {scoreData.label.includes("Defensible") && (
+                            <>
+                              <h3 className='font-bold'>Some suggestions on how you can maximize competitive edge</h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Marginal") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your competitive edge from Marginal to <span className='text-green-500'>Defensible</span></h3><br/>
+                            </>
+                          )}
+                          {scoreData.label.includes("Weak") && (
+                            <>
+                              <h3 className='font-bold'>How you can bring your competitive edge from Weak to <span className='border-b pb-4'>Defensible</span></h3><br/>
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
                     <Dialog>
                       <DialogTrigger asChild>
                         <Button className='dark'>Check Suggestions</Button>
@@ -1158,17 +1218,17 @@ function Validation() {
                   </div>
                 </div>
 
-                <div className='w-[30vw]'>
+                <div className='w-[40vw]'>
 
                   <div className='min-h-[20vh]'>
                     <div className='flex items-center gap-2 mb-5'>
                       <span className='dot'/>
                       <h1 className=''>Edge Metrics</h1>
                     </div>
-                    <h3 className='opacity-[60%]'>
+                    <h3 className='opacity-[60%] border-t border-neutral-600 pt-4'>
                       {getArrayData(competitiveEdgeMetrics).map((marker, index) => (
-                        <div key={index} className='mb-3'>
-                          <span>{marker.substring(marker.indexOf(": ")+2)}</span>
+                        <div key={index} className='border-b border-neutral-600 pb-4 mb-4'>
+                          <span>&#9654;&nbsp;&nbsp;{marker.substring(marker.indexOf(": ")+2)}</span>
                         </div>
                       ))}
                     </h3>
@@ -1212,13 +1272,17 @@ function Validation() {
            {/* Investor Persona */}
           <div className="flex-1 relative">
             <div className='flex items-center justify-center flex-col'>
-              <div className='flex items-center justify-between w-full mb-4'>
+              <div className='flex items-center justify-between w-full mb-7'>
                 <h1 className='text-xl font-bold pr-5'>What would Investors say?</h1>
                 <Image className='avatar-persona' alt="" src={avatar}/>
               </div>
               {investorPersonaSummary && investorPersonaSummary.length > 0 && (
                 <div id="investor-persona" className='persona opacity-[60%]'>
-                  {investorPersonaSummary}
+                  {investorPersonaSummary.split(".").filter(line => line.trim() !== "").map((line, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
+                      <li>{line.trim()}</li><br/>
+                    </React.Fragment>
+                  ))}
                 </div>
               )}<br/>
               <div className='flex items-center justify-between w-full'>
@@ -1226,11 +1290,11 @@ function Validation() {
                 <div className='flex items-center gap-2'>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className='dark'>Additional Tips</Button>
+                      <Button className='dark'>More</Button>
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Investor Persona Feedback</DialogTitle>
+                        <DialogTitle className='mb-3'>Additional Feedback</DialogTitle>
                         {getArrayData(investorPersonaFeedback).map((invest, index) => (
                           <div className='opacity-[65%]' key={index}>
                             <span className='mb-2 text-md'>{invest.substring(invest.indexOf(": ")+2)}</span>
@@ -1245,10 +1309,12 @@ function Validation() {
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Investor Persona Sources</DialogTitle>
+                        <DialogTitle className='mb-3'>Relevant sources of information</DialogTitle>
                         {getArrayData(investorPersonaSources).map((source, index) => (
-                          <div className='opacity-[65%]' key={index}>
-                            <span className='mb-2 text-md'>{source.substring(source.indexOf(": ")+2)}</span>
+                          <div className='' key={index}>
+                            <Button onClick={() => {
+                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
+                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
                           </div>
                         ))}
                       </DialogHeader>
@@ -1261,13 +1327,17 @@ function Validation() {
            {/* Product Manager Persona */}
           <div className="flex-1 relative">
             <div className='flex items-center justify-center flex-col'>
-              <div className='flex items-center justify-between w-full mb-4'>
+              <div className='flex items-center justify-between w-full mb-7'>
                 <h1 className='text-xl font-bold pr-5'>How would Product Leaders judge this?</h1>
                 <Image className='avatar-persona' alt="" src={avatar}/>
               </div>
               {productPersonaSummary && productPersonaSummary.length > 0 && (
                 <div id="product-persona" className='persona opacity-[60%]'>
-                  {productPersonaSummary}
+                  {productPersonaSummary.split(".").filter(line => line.trim() !== "").map((line, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
+                      <li>{line.trim()}</li><br/>
+                    </React.Fragment>
+                  ))}
                 </div>
               )}<br/>
               <div className='flex items-center justify-between w-full'>
@@ -1275,11 +1345,11 @@ function Validation() {
                 <div className='flex items-center gap-2'>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className='dark'>Additional Tips</Button>
+                      <Button className='dark'>More</Button>
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Product Manager Persona Feedback</DialogTitle>
+                        <DialogTitle className='mb-3'>Additional Feedback</DialogTitle>
                         {getArrayData(productPersonaFeedback).map((feedback, index) => (
                           <div className='opacity-[65%]' key={index}>
                             <span className='mb-2 text-md'>{feedback.substring(feedback.indexOf(": ")+2)}</span>
@@ -1294,10 +1364,12 @@ function Validation() {
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Product Manager Persona Sources</DialogTitle>
+                        <DialogTitle className='mb-3'>Relevant sources of information</DialogTitle>
                         {getArrayData(productPersonaSources).map((source, index) => (
-                          <div className='opacity-[65%]' key={index}>
-                            <span className='mb-2 text-md'>{source.substring(source.indexOf(": ")+2)}</span>
+                          <div className='' key={index}>
+                            <Button onClick={() => {
+                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
+                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
                           </div>
                         ))}
                       </DialogHeader>
@@ -1310,13 +1382,17 @@ function Validation() {
            {/* Tech Lead Persona */}
           <div className="flex-1 relative">
             <div className='flex items-center justify-center flex-col'>
-              <div className='flex items-center justify-between w-full mb-4'>
+              <div className='flex items-center justify-between w-full mb-7'>
                 <h1 className='font-bold text-xl pr-5'>What would Tech CEOs say about your idea?</h1>
                 <Image className='avatar-persona' alt="" src={avatar}/>
               </div>
               {techPersonaSummary && techPersonaSummary.length > 0 && (
                 <div id="tech-persona" className='persona opacity-[60%]'>
-                  {techPersonaSummary}
+                  {techPersonaSummary.split(".").filter(line => line.trim() !== "").map((line, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
+                      <li>{line.trim()}</li><br/>
+                    </React.Fragment>
+                  ))}
                 </div>
               )}<br/>
               <div className='flex items-center justify-between w-full'>
@@ -1324,11 +1400,11 @@ function Validation() {
                 <div className='flex items-center gap-2'>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className='dark'>Additional Tips</Button>
+                      <Button className='dark'>More</Button>
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Tech Lead Persona Feedback</DialogTitle>
+                        <DialogTitle className='mb-3'>Additional Feedback</DialogTitle>
                         {getArrayData(techPersonaFeedback).map((feedback, index) => (
                           <div className='opacity-[65%]' key={index}>
                             <span className='mb-2 text-md'>{feedback.substring(feedback.indexOf(": ")+2)}</span>
@@ -1343,10 +1419,12 @@ function Validation() {
                     </DialogTrigger>
                     <DialogContent className='dark'>
                       <DialogHeader>
-                        <DialogTitle className='mb-3'>Tech Lead Persona Sources</DialogTitle>
+                        <DialogTitle className='mb-3'>Relevant sources of information</DialogTitle>
                         {getArrayData(techPersonaSources).map((source, index) => (
-                          <div className='opacity-[65%]' key={index}>
-                            <span className='mb-2 text-md'>{source.substring(source.indexOf(": ")+2)}</span>
+                          <div className='' key={index}>
+                            <Button onClick={() => {
+                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
+                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
                           </div>
                         ))}
                       </DialogHeader>
