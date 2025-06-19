@@ -99,7 +99,7 @@ function ExecutiveSummary() {
           });
   
           if (res.status === 429) {
-            console.log('Rate limit exceeded. Please wait a moment.');
+            // console.log('Rate limit exceeded. Please wait a moment.');
             return;
           }
   
@@ -142,7 +142,7 @@ function ExecutiveSummary() {
       
       const totalgen = await generateFields(prompt + " " + mainprompt);
 
-      console.log(totalgen);
+      // console.log(totalgen);
       
       if (totalgen) {
         const message = totalgen.choices[0].message.content;

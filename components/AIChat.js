@@ -100,7 +100,6 @@ You must strictly respond with the following JSON Format with no extra text or m
         End_To_End: endToEndDescription
       })
       .eq('email', `${session?.user?.email}`);
-    console.log(error);
     // if(error == null) {
     //   alert("Something went wrong. Try again!")
     // } else {
@@ -147,9 +146,9 @@ You must strictly respond with the following JSON Format with no extra text or m
           alert("Total number of prompts used. You must use a plan to continue");
         }
       }
-      console.log('API Response:', data);
+      // console.log('API Response:', data);
       const reply = data.choices?.[0]?.message;
-      console.log('Reply content:', reply?.content);
+      // console.log('Reply content:', reply?.content);
 
       if (reply) {
         try {

@@ -38,7 +38,7 @@ function Nav() {
     .select()
     .eq("email", userEmail)
 
-    console.log(data);
+    // console.log(data);
 
     if(data && data.length>0) {
       setIdea(data[0].End_To_End);

@@ -80,13 +80,14 @@ const CurrentCompetitor = ({
           <DialogContent className="dark">
             <DialogHeader>
               <DialogTitle>Key Strengths of {name}</DialogTitle>
-              <DialogDescription>
+              <div className="opacity-[70%]">
                 {strengths.map((strength) => (
                   <div key={strength} className="mt-2">
                     <li>{strength}</li>
                   </div>
                 ))}
-              </DialogDescription>
+              </div>
+              <DialogDescription></DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>

@@ -116,10 +116,22 @@ function Validation() {
   const safeParseJSON = (jsonString) => {
     if (!jsonString || typeof jsonString !== 'string') return null;
     try {
+      // Try to parse as JSON
       return JSON.parse(jsonString);
     } catch (error) {
-      console.error('Failed to parse JSON:', jsonString, error);
-      return null;
+      // If it fails, try to split by comma (for legacy data)
+      if (jsonString.includes(',')) {
+        // Remove brackets if present
+        let cleaned = jsonString.trim();
+        if (cleaned.startsWith('[') && cleaned.endsWith(']')) {
+          cleaned = cleaned.slice(1, -1);
+        }
+        // Split by comma, but keep quoted commas together
+        // This is a simple fallback, not a full CSV parser
+        return cleaned.split(/,(?![^\"]*\")/).map(s => s.trim().replace(/^"|"$/g, ''));
+      }
+      // Otherwise, return as single-element array
+      return [jsonString];
     }
   };
 
@@ -129,6 +141,18 @@ function Validation() {
       return { score: 0, label: '' };
     }
     return { score: parsed[0], label: parsed[1] };
+  };
+
+  // Helper function to get color for labels
+  const getLabelColor = (label) => {
+    if (label.includes("Strong") || label.includes("Defensible") || label.includes("Focused")) {
+      return "bg-green-600";
+    } else if (label.includes("Moderate") || label.includes("Marginal") || label.includes("Generic")) {
+      return "bg-amber-300";
+    } else if (label.includes("Weak") || label.includes("Vague")) {
+      return "bg-red-400";
+    }
+    return "bg-gray-400"; // default fallback
   };
 
   const getArrayData = (arrayString) => {
@@ -218,6 +242,7 @@ function Validation() {
         Target Audience: ${data2[0].Target_Audience}
         Unique Value Proposition: ${data2[0].Unique}
         Key Features: ${data2[0].Features}
+        Location (Is not available or specified at): ${data2[0].location}
 
         Respond strictly in the below format:
         {
@@ -318,6 +343,7 @@ function Validation() {
         Target Audience: ${data2[0].Target_Audience}
         Unique Value Proposition: ${data2[0].Unique}
         Key Features: ${data2[0].Features}
+        Location (Is not available or specified at): ${data2[0].location}
 
         Respond strictly in the below format:
         {
@@ -410,6 +436,7 @@ function Validation() {
         Problem: ${data2[0].Problem}
         Target Audience: ${data2[0].Target_Audience}
         Unique Value Proposition: ${data2[0].Unique}
+        Location (Is not available or specified at): ${data2[0].location}
         Key Features: ${data2[0].Features}
 
         Respond strictly in the below format:
@@ -519,6 +546,7 @@ function Validation() {
         ${data2[0].Problem}
         ${data2[0].Target_Audience}
         ${data2[0].Unique}
+        Location (Is not available or specified at): ${data2[0].location}
         ${data2[0].Features}
 
         Respond strictly in the below format:
@@ -540,6 +568,7 @@ function Validation() {
         ${data2[0].Problem}
         ${data2[0].Target_Audience}
         ${data2[0].Unique}
+        Location (Is not available or specified at): ${data2[0].location}
         ${data2[0].Features}
 
         Respond strictly in the below format:
@@ -561,6 +590,7 @@ function Validation() {
         ${data2[0].Problem}
         ${data2[0].Target_Audience}
         ${data2[0].Unique}
+        Location (Is not available or specified at): ${data2[0].location}
         ${data2[0].Features}
 
         Respond strictly in the below format:
@@ -753,11 +783,26 @@ function Validation() {
             {(() => {
               const scoreData = getScoreData(marketDemandScore);
               if (scoreData.label.includes("Strong")) {
-                return <span className='text-green-600'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-green-600'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Moderate")) {
-                return <span className='text-amber-300'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-amber-300'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Weak")) {
-                return <span className='text-red-400'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-red-400'>{scoreData.label}</span>
+                  </div>
+                );
               }
               return null;
             })()}
@@ -930,11 +975,26 @@ function Validation() {
             {(() => {
               const scoreData = getScoreData(targetAudienceScore);
               if (scoreData.label.includes("Focused")) {
-                return <span className='text-green-600'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-green-600'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Generic")) {
-                return <span className='text-amber-300'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-amber-300'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Vague")) {
-                return <span className='text-red-400'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-red-400'>{scoreData.label}</span>
+                  </div>
+                );
               }
               return null;
             })()}
@@ -1105,11 +1165,26 @@ function Validation() {
             {(() => {
               const scoreData = getScoreData(competitiveEdgeScore);
               if (scoreData.label.includes("Defensible")) {
-                return <span className='text-green-600'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-green-600'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Marginal")) {
-                return <span className='text-amber-300'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-amber-300'>{scoreData.label}</span>
+                  </div>
+                );
               } else if (scoreData.label.includes("Weak")) {
-                return <span className='text-red-400'>{scoreData.label}</span>;
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className={`w-3 h-3 rounded-full ${getLabelColor(scoreData.label)}`}></div>
+                    <span className='text-red-400'>{scoreData.label}</span>
+                  </div>
+                );
               }
               return null;
             })()}

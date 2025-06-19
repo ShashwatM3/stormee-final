@@ -12,7 +12,7 @@ import supabase from '../config/supabaseClient'
 import { toast } from 'sonner';
 
 function Authentication() {
-  console.log(supabase);
+  // console.log(supabase);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -57,7 +57,7 @@ function Authentication() {
           username: user.value,
         });
 
-        console.log("SignIn result:", result);
+        // console.log("SignIn result:", result);
 
         if (result?.error) {
           toast.error("SignIn error:", result.error);
@@ -73,7 +73,7 @@ function Authentication() {
             .from('Users')
             .select()
             .eq("email", email);
-            console.log(data);
+            // console.log(data);
 
             if (data.length>0) {
               toast.success("You already have an acount existent with your email");
@@ -91,6 +91,7 @@ function Authentication() {
                 End_To_End: '',
                 Stage: "Tutorial",
                 final: "",
+                lcoation: "",
               });
               toast.success("Welcome to Stormee AI!");
 

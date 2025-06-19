@@ -14,7 +14,7 @@ function BusinessComponents() {
       .from('Users')
       .select()
       .eq('email', session.user?.email)
-      console.log(Object.keys(data[0]).includes("Paid"));
+      // console.log(Object.keys(data[0]).includes("Paid"));
     }
     if (status == 'authenticated') {
       fetchSupabaseData()

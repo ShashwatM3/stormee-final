@@ -42,6 +42,7 @@ function HomePage() {
   const [unique, setUnique] = useState('');
   const [features, setFeatures] = useState('');
   const [endToEndDescription, setEndToEndDescription] = useState('');
+  const [location, setLocation] = useState('')
   const [currentStage, setCurrentStage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState({});
@@ -140,35 +141,41 @@ function HomePage() {
       const form3 = document.getElementById("form3");
       const form4 = document.getElementById("form4");
       const form5 = document.getElementById("form5");
+      const form6 = document.getElementById("form6");
       let cnt = 0;
 
-      if(form1) {
-        if(form1.value.trim().length>0) {
-          cnt+=1;
-        }
-      }
-      if(form2) {
-        if(form2.value.trim().length>0) {
-          cnt+=1;
-        }
-      }
-      if(form3) {
-        if(form3.value.trim().length>0) {
-          cnt+=1;
-        }
-      }
-      if(form4) {
-        if(form4.value.trim().length>0) {
-          cnt+=1;
-        }
-      }
-      if(form5) {
-        if(form5.value.trim().length>0) {
-          cnt+=1;
-        }
-      }
+      // if(form1) {
+      //   if(form1.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
+      // if(form2) {
+      //   if(form2.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
+      // if(form3) {
+      //   if(form3.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
+      // if(form4) {
+      //   if(form4.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
+      // if(form5) {
+      //   if(form5.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
+      // if(form6) {
+      //   if(form6.value.trim().length>0) {
+      //     cnt+=1;
+      //   }
+      // }
 
-      if(cnt==5) {
+      if(form1.value.trim().length>0 && form2.value.trim().length>0 && form3.value.trim().length>0) {
         try {
           const el1 = document.getElementById("idea-questions");
           if(el1) {
@@ -185,8 +192,9 @@ function HomePage() {
             Target Audience: ${form3.value}
             Unique Value Proposition: ${form4.value}
             Key Features: ${form5.value}
+            Geographic Location: ${form6.value}
 
-            Using the above inputs, return a JSON object with grammatically refined versions of each section.
+            Using the above inputs, return a JSON object with grammatically refined and powerful versions of each section.
 
             Strict Output Requirements:
             - Return only a valid JSON object.
@@ -198,7 +206,7 @@ function HomePage() {
               "The Unique Value Proposition"
               "The Key Features"
               "The End-to-End Description"
-            - Use only the provided content (no additional interpretation or embellishment).
+            - Use only the provided content for transformation.
             - Ensure the values are refined for grammar, clarity, and tone.
             - Do not include anything outside the JSON object (no markdown, no explanation, no preamble).
 
@@ -209,12 +217,13 @@ function HomePage() {
               "The Target Audience": "refined text here",
               "The Unique Value Proposition": "refined text here",
               "The Key Features": "refined text here",
+              "The Location": "Only and only if the user has mentioned any geographic location",
               "The End-to-End Description": "refined and aggregated summary using all above information"
             }
           `);
 
 
-          console.log('AI Response:', resp);
+          // console.log('AI Response:', resp);
           let respo = resp.substring(resp.indexOf("{"), resp.indexOf("}")+1);
           let data = JSON.parse(respo);
           
@@ -225,7 +234,8 @@ function HomePage() {
           setUnique(data["The Unique Value Proposition"]);
           setFeatures(data["The Key Features"]);
           setEndToEndDescription(data["The End-to-End Description"]);
-          console.log(data);
+          setLocation(data["The Location"]);
+          // console.log(data);
           
           const { error } = await supabase
             .from('Users')
@@ -235,11 +245,12 @@ function HomePage() {
               Problem: data["The Problem"],
               Unique: data["The Unique Value Proposition"],
               Features: data["The Key Features"],
+              location: data["The Location"],
               End_To_End: data["The End-to-End Description"],
             })
             .eq('email', session.user?.email);
 
-          console.log(error);
+          // console.log(error);
 
           if(error==null) {
             
@@ -265,7 +276,7 @@ function HomePage() {
           toast.error('Failed to submit idea. Please try again.');
         }
       } else {
-        toast.error('Please fill out all fields');
+        toast.error('Please fill out all the required fields');
       }
     } catch (error) {
       console.error('Error in handleSubmitForm:', error);
@@ -301,13 +312,13 @@ function HomePage() {
   useEffect(() => {
     async function getSupaData() {
       if (status !== 'authenticated' || !session?.user?.email) {
-        console.log('Waiting for session to load...');
+        // console.log('Waiting for session to load...');
         setIsLoading(true);
         return;
       }
       
       setIsLoading(false);
-      console.log('Fetching data for email:', session.user.email);
+      // console.log('Fetching data for email:', session.user.email);
       
       try {
         const { data, error } = await supabase
@@ -321,7 +332,7 @@ function HomePage() {
         }
 
         if (data && data.length > 0) {
-          console.log(data[0].Stage);
+          // console.log(data[0].Stage);
           setStage(data[0].Stage);
           setIdea(data[0].Idea || '');
           setTargetAudience(data[0].Target_Audience || '');
@@ -329,7 +340,7 @@ function HomePage() {
           setUnique(data[0].Unique || '');
           setFeatures(data[0].Features || '');
           setEndToEndDescription(data[0].End_To_End || '');
-          console.log(data[0].final)
+          // console.log(data[0].final)
 
           if (!data[0].Idea || data[0].Idea.trim() === '') {
             setCurrentStage("muse");
@@ -370,7 +381,7 @@ function HomePage() {
     <div className='home-page-main'>
       {currentStage == "canvas" ? (
         <div className='hpm-1'>
-          <div className='user-progress'>
+          {/* <div className='user-progress'>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant='secondary' className='dark'>Your Progress</Button>
@@ -383,25 +394,25 @@ function HomePage() {
                   {currentStage=="muse" && (
                     <>
                     <span className='flex gap-2 mb-2'><Image alt="" src={inprogress}/>Stage 1: Idea Creation</span>
-                    {/* <span className='h-6 w-[1px] bg-gray-200 mx-4'></span> */}
+
                     <span className='flex gap-2 mb-2'><Image alt="" src={cross}/><span>Stage 2: Validation Engine</span></span>
-                    {/* <span className='h-6 w-[1px] bg-gray-200 mx-4'></span> */}
+
                     <span className='flex gap-2'><Image alt="" src={cross}/><span>Stage 3: Stormee Canvas</span></span>
                     </>
                   )}
                   {currentStage=="validation" && (
                     <>
                     <span className='flex gap-2 mb-2'><Image alt="" src={tick}/>Stage 1: Idea Creation</span>
-                    {/* <span className='h-6 w-[1px] bg-gray-200 mx-4'></span> */}
+
                     <span className='flex gap-2 mb-2'><Image alt="" src={inprogress}/><span>Stage 2: Validation Engine</span></span>
-                    {/* <span className='h-6 w-[1px] bg-gray-200 mx-4'></span> */}
+
                     <span className='flex gap-2'><Image alt="" src={cross}/><span>Stage 3: Stormee Canvas</span></span>
                     </>
                   )}
                 </DialogDescription>
               </DialogContent>
             </Dialog>
-          </div>
+          </div> */}
           <h2 className='scroll-m-20 text-2xl font-light tracking-tight'>Welcome, {session?.user?.name}</h2>
           <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>Stage 3: MVP Dashboard</h1>
           <h3 className='opacity-[70%]'><b>View detailed competitive and market analysis tailored to your idea</b></h3>
@@ -512,7 +523,7 @@ function HomePage() {
         </div>
       ): currentStage=="validation" ? (
         <div className='hpm-1'>
-          <div className='user-progress'>
+          {/* <div className='user-progress'>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant='secondary' className='dark'>Your Progress</Button>
@@ -543,7 +554,7 @@ function HomePage() {
                 </DialogDescription>
               </DialogContent>
             </Dialog>
-          </div>
+          </div> */}
           <h2 className='scroll-m-20 text-2xl font-light tracking-tight'>Welcome, {session?.user?.name}</h2>
           <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>Stage 2: Validation Stage</h1>
           <h3 className='opacity-[70%]'>Now, let's see if your idea will <b>make or break</b></h3>
@@ -593,7 +604,7 @@ function HomePage() {
         </div>
       ):(
         <div className='home-page-main'>
-          <div className='user-progress'>
+          {/* <div className='user-progress'>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant='secondary' className='dark'>Your Progress</Button>
@@ -624,7 +635,7 @@ function HomePage() {
                 </DialogDescription>
               </DialogContent>
             </Dialog>
-          </div>
+          </div> */}
           {stage === "Tutorial" ? (
             <>
             <div className='hpm-1' id="hpm-1-1">
@@ -663,7 +674,7 @@ function HomePage() {
                   </p>
                   <p className='flex items-center'>
                     <Image alt="" className='tick' src={tick}/>
-                    Build a Pitch-Ready Blueprint: Exportable and sharable
+                    Deep and powerful competitor analysis for your product
                   </p>
                   <p className='flex items-center'>
                     <Image alt="" className='tick' src={tick}/>
@@ -671,7 +682,7 @@ function HomePage() {
                   </p>
                   <p className='flex items-center'>
                     <Image alt="" className='tick' src={tick}/>
-                    End with a pitch-ready business plan suited to your idea
+                    Obtain 2-3 days worth of market research + validation, in minutes
                   </p>
                 </div>
               </div>
@@ -957,10 +968,12 @@ function HomePage() {
                             <Input id="form2" className='mb-4'/>
                             <h3 className='mb-2'>Who is your primary target audience?</h3>
                             <Input id="form3" className='mb-4'/>
-                            <h3 className='mb-2'>What do you think makes your solution unique or better than existing ones?</h3>
-                            <Textarea id="form4" className='mb-4'/>
-                            <h3 className='mb-2'>Some features that come to your mind for this idea?</h3>
-                            <Textarea id="form5" className='mb-4'/>
+                            <h3 className='mb-2'>What do you think makes your solution unique or better than existing ones?&nbsp;<span className='opacity-[60%] border-b border-neutral-500'>Optional</span></h3>
+                            <Input id="form4" className='mb-4'/>
+                            <h3 className='mb-2'>Some features that come to your mind for this idea?&nbsp;<span className='opacity-[60%] border-b border-neutral-500'>Optional</span></h3>
+                            <Textarea id="form5" className='mb-3'/>
+                            <h3 className='mb-2'>Any geographic specifities?&nbsp;<span className='opacity-[60%] border-b border-neutral-500'>Optional</span></h3>
+                            <Input id="form6" className='mb-4'/>
                             <Button onClick={handleSubmitForm} className='w-full'>Submit</Button>
                           </div>
                         </SheetHeader>

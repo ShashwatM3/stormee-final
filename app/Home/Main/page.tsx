@@ -26,7 +26,8 @@ function Page() {
     Problem: string,
     Unique: string,
     End_To_End: string,
-    final: string
+    final: string,
+    location: string,
   };  
 
   const router = useRouter();
@@ -72,7 +73,7 @@ function Page() {
   }, [router, status]);
 
   async function finalSetIdea() {
-    console.log(endToEndValue);
+    // console.log(endToEndValue);
     if (session) {
       const { error } = await supabase
       .from('Users')

@@ -37,7 +37,7 @@ function DashboardPage() {
   // }, [router, status])
 
   useEffect(() => {
-    console.log(status)
+    // console.log(status)
     setTimeout(() => {
       const dt = document.getElementById("dashboard-ticker");
       if(dt) {

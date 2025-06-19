@@ -134,10 +134,11 @@ function BusinessMain() {
       ${data[0].Problem}
       ${data[0].Unique}
       ${data[0].Features}
+      Location (Is not available or specified at): ${data[0].location}
 
       You are a **startup postmortem analyst,** who has experience of over 20+ years understanding the real world market and the startups, companies or projects that have impacted the user's industry in a negative as well as positive way.
 
-      Your task is to identify 4 failed companies, startups, or projects** that attempted almost similar or same goals to the user's idea and **failed*. Focus on delivering **insightful, contextual, and actionable** information.
+      Your task is to identify 4 failed companies, startups, or projects** that attempted almost similar or same goals to the user's idea and **failed*. If and only the user has mentioned a specific geographic location of the startup, emphasize on finding failed companies/startups/projects in the proximity of the location. Focus on delivering **insightful, contextual, and actionable** information.
 
       Return your output in **JSON format** using the structure below:
 
@@ -271,10 +272,11 @@ function BusinessMain() {
           ${data[0].Problem}
           ${data[0].Unique}
           ${data[0].Features}
+          Location (Is not available or specified at): ${data[0].location}
 
           You are a **competitive intelligence analyst** with 20+ years of experience identifying and analyzing companies and startups within emerging industries.
 
-          Your task is to identify 2-4 **current competitors** (companies, startups, or projects) that are actively building or offering something similar to the user's idea. These entities should be *globally sourced* and must have demonstrated validated market value — such as user growth, product adoption, or significant funding.
+          Your task is to identify 2-4 **current competitors** (companies, startups, or projects) that are actively building or offering something similar to the user's idea. If and only the user has mentioned a specific geographic location of the startup, emphasize on finding failed companies/startups/projects in the proximity of the location. These entities should be *globally sourced* (if geographical location is not mentioned by user) and must have demonstrated validated market value — such as user growth, product adoption, or significant funding.
 
           Return your output in **JSON format** using the structure below:
 

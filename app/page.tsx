@@ -23,7 +23,7 @@ export default function Home() {
     if (status === "authenticated") {
       router.push("/Home");
     }
-    console.log(session);
+    // console.log(session);
     setTimeout(() => {
       const m = document.getElementById("main");
       if(m) {
