@@ -91,7 +91,7 @@ function Authentication() {
                 End_To_End: '',
                 Stage: "Tutorial",
                 final: "",
-                lcoation: "",
+                location: "",
               });
               toast.success("Welcome to Stormee AI!");
 
