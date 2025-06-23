@@ -207,7 +207,7 @@ function Nav() {
                                 <DialogDescription>This will revamp your complete MVP Dashboard (Validation Dashboard + Competitor Insights)</DialogDescription>
                               </DialogHeader>
                               <DialogFooter asChild>
-                                <Button onClick={() => {setNewTargetAudience}}>Proceed</Button>
+                                <Button onClick={() => {setNewTargetAudience()}}>Proceed</Button>
                               </DialogFooter>
                             </DialogContent>
                           </Dialog>
