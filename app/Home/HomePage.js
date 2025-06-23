@@ -958,7 +958,7 @@ function HomePage() {
                       <SheetTrigger asChild>
                         <Button className='w-full'>Launch Form</Button>
                       </SheetTrigger>
-                      <SheetContent className='dark p-5 pt-10'>
+                      <SheetContent className='dark p-5 pt-10 h-[90vh] overflow-scroll'>
                         <SheetHeader className='form-idea'>
                           <SheetTitle className='text-xl border-b pb-4 border-neutral-600'>Describe your idea</SheetTitle><br/>
                           <div id="idea-questions">

@@ -254,7 +254,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the market demand analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF MARKET DEMAND.
+        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF MARKET DEMAND. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
 
       const start = resp.indexOf('{');
@@ -355,7 +355,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the competitive analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Strictly avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF COMPETITIVE EDGE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Strictly follow the output format given. Strictly avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF COMPETITIVE EDGE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
 
       const start = resp.indexOf('{');
@@ -449,7 +449,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}", "S3: {source 3}"] (2-3 sources with format "name, url" validating the audience analysis)
         }
 
-        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF TARGET AUDIENCE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Strictly follow the output format given. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each and everything of the content you produce MUST BE ONLY AND ONLY WITHIN THE REALM OF TARGET AUDIENCE. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
 
       const start = resp.indexOf('{');
@@ -557,7 +557,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the investor perspective)
         }
 
-        Strict Guidelines: Be brutally honest and realistic. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be brutally honest and realistic. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
       console.log("Prompt 1 DONE WOOHOO")
 
@@ -579,7 +579,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the product perspective)
         }
 
-        Strict Guidelines: Be direct and unfiltered. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and powerful. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be direct and unfiltered. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and powerful. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
       console.log("Prompt 2 DONE WOOHOO")
 
@@ -601,7 +601,7 @@ function Validation() {
           "sources": ["S1: {source 1}", "S2: {source 2}"] (2 sources with format "name, url" validating the technical perspective)
         }
 
-        Strict Guidelines: Be honest and concise. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json.
+        Strict Guidelines: Be honest and concise. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
       console.log("got prompts yayy (personas)")
 
@@ -755,7 +755,7 @@ function Validation() {
 
   return (
     <>
-    {!isLoading && marketDemandCheck && targetAudienceCheck && competitiveEdgeCheck && 
+    {marketDemandCheck && targetAudienceCheck && competitiveEdgeCheck && 
      investorPersonaCheck && productManagerPersonaCheck && techLeadPersonaCheck &&
      marketDemandSummary && marketDemandScore && marketDemandIndicators && marketDemandRedFlags && marketDemandOptimization && marketDemandSources &&
      targetAudienceSummary && targetAudienceScore && targetAudienceEmpathyMarkers && targetAudienceRedFlags && targetAudienceOptimization && targetAudienceSources &&
@@ -940,12 +940,25 @@ function Validation() {
                       <DialogTrigger asChild>
                         <Button className='dark'>View Sources</Button>
                       </DialogTrigger>
-                      <DialogContent className='dark'>
+                      <DialogContent className='dark w-[40vw] overflow-scroll'>
                         <DialogHeader>
                           <DialogTitle>Sources to information</DialogTitle><br/>
                             {getArrayData(marketDemandSources).map((source, index) => (
                               <div className='mb-4' key={index}>
-                                <Button className='dark' variant='outline' onClick={() => {window.open(`${source.substring(source.indexOf("http"))}`)}}>{source.replace(source.substring(source.indexOf("http")), "")}</Button>
+                                <Button className='dark' variant='outline' onClick={() => {
+                                  const urlStart = source.indexOf("http");
+                                  if (urlStart !== -1) {
+                                    window.open(source.substring(urlStart));
+                                  }
+                                }}>
+                                  {(() => {
+                                    const urlStart = source.indexOf("http");
+                                    if (urlStart !== -1) {
+                                      return source.substring(source.indexOf(": ")+2, urlStart).trim();
+                                    }
+                                    return source;
+                                  })()}
+                                </Button>
                               </div>
                             ))}
                             <span className='opacity-[60%]'>Some links may not open due to restrictivity.</span>
@@ -1136,7 +1149,20 @@ function Validation() {
                           <DialogTitle>Sources to information</DialogTitle><br/>
                             {getArrayData(targetAudienceSources).map((source, index) => (
                               <div className='mb-4' key={index}>
-                                <Button className='dark' variant='outline' onClick={() => {window.open(`${source.substring(source.indexOf("http"))}`)}}>{source.replace(source.substring(source.indexOf("http")), "")}</Button>
+                                <Button className='dark' variant='outline' onClick={() => {
+                                  const urlStart = source.indexOf("http");
+                                  if (urlStart !== -1) {
+                                    window.open(source.substring(urlStart));
+                                  }
+                                }}>
+                                  {(() => {
+                                    const urlStart = source.indexOf("http");
+                                    if (urlStart !== -1) {
+                                      return source.substring(0, urlStart).trim();
+                                    }
+                                    return source;
+                                  })()}
+                                </Button>
                               </div>
                             ))}
                             <span className='opacity-[60%]'>Some links may not open due to restrictivity.</span>
@@ -1326,7 +1352,20 @@ function Validation() {
                           <DialogTitle>Sources to information</DialogTitle><br/>
                             {getArrayData(competitiveEdgeSources).map((source, index) => (
                               <div className='mb-4' key={index}>
-                                <Button className='dark' variant='outline' onClick={() => {window.open(`${source.substring(source.indexOf("http"))}`)}}>{source.replace(source.substring(source.indexOf("http")), "")}</Button>
+                                <Button className='dark' variant='outline' onClick={() => {
+                                  const urlStart = source.indexOf("http");
+                                  if (urlStart !== -1) {
+                                    window.open(source.substring(urlStart));
+                                  }
+                                }}>
+                                  {(() => {
+                                    const urlStart = source.indexOf("http");
+                                    if (urlStart !== -1) {
+                                      return source.substring(0, urlStart).trim();
+                                    }
+                                    return source;
+                                  })()}
+                                </Button>
                               </div>
                             ))}
                             <span className='opacity-[60%]'>Some links may not open due to restrictivity.</span>
@@ -1388,8 +1427,19 @@ function Validation() {
                         {getArrayData(investorPersonaSources).map((source, index) => (
                           <div className='' key={index}>
                             <Button onClick={() => {
-                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
-                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
+                              const urlStart = source.indexOf("http");
+                              if (urlStart !== -1) {
+                                window.open(source.substring(urlStart));
+                              }
+                            }}>
+                              {(() => {
+                                const urlStart = source.indexOf("http");
+                                if (urlStart !== -1) {
+                                  return source.substring(0, urlStart).trim();
+                                }
+                                return source;
+                              })()}
+                            </Button>
                           </div>
                         ))}
                       </DialogHeader>
@@ -1443,8 +1493,19 @@ function Validation() {
                         {getArrayData(productPersonaSources).map((source, index) => (
                           <div className='' key={index}>
                             <Button onClick={() => {
-                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
-                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
+                              const urlStart = source.indexOf("http");
+                              if (urlStart !== -1) {
+                                window.open(source.substring(urlStart));
+                              }
+                            }}>
+                              {(() => {
+                                const urlStart = source.indexOf("http");
+                                if (urlStart !== -1) {
+                                  return source.substring(0, urlStart).trim();
+                                }
+                                return source;
+                              })()}
+                            </Button>
                           </div>
                         ))}
                       </DialogHeader>
@@ -1498,8 +1559,19 @@ function Validation() {
                         {getArrayData(techPersonaSources).map((source, index) => (
                           <div className='' key={index}>
                             <Button onClick={() => {
-                              window.open((source.substring(source.indexOf(": ")+2)).substring((source.substring(source.indexOf(": ")+2)).indexOf("https")))
-                            }}>{((source.substring(source.indexOf(": ")+2)).substring(0,(source.substring(source.indexOf(": ")+2)).indexOf("https")-2))}</Button>
+                              const urlStart = source.indexOf("http");
+                              if (urlStart !== -1) {
+                                window.open(source.substring(urlStart));
+                              }
+                            }}>
+                              {(() => {
+                                const urlStart = source.indexOf("http");
+                                if (urlStart !== -1) {
+                                  return source.substring(0, urlStart).trim();
+                                }
+                                return source;
+                              })()}
+                            </Button>
                           </div>
                         ))}
                       </DialogHeader>

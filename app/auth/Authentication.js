@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./styles.css";
 // import rocket from "@/components/icons/rocket.png"
 // import Image from 'next/image';
@@ -20,6 +20,22 @@ function Authentication() {
   
   const router = useRouter();
 
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/Home");
+    }
+    setTimeout(() => {
+      const m = document.getElementById("main");
+      if(m) {
+        m.style.display="block";
+      }
+      const l = document.getElementById("loadingsc");
+      if(l) {
+        l.style.display="none";
+      }
+    }, 800);
+  }, [status]);
+
   async function stageOne() {
     const em = document.getElementById("email-register");
     if(em) {
@@ -37,6 +53,8 @@ function Authentication() {
   async function stageTwo() {
     const pass = document.getElementById("pass-register");
     const user = document.getElementById("user-register");
+
+    document.getElementById("toastAuth").style.display="flex";
   
     if(pass && user) {
       if(pass.value.length < 8) {
@@ -76,7 +94,7 @@ function Authentication() {
             // console.log(data);
 
             if (data.length>0) {
-              toast.success("You already have an acount existent with your email");
+              toast.success("You already have an account existent with your email");
             } else {
               const { error } = await supabase
               .from('Users')
@@ -97,6 +115,8 @@ function Authentication() {
 
               if (error) {
                 toast.error(error);
+              } else {
+                document.getElementById("toastAuth").style.display="none";
               }
             }
           } catch (supabaseError) {
@@ -146,6 +166,9 @@ function Authentication() {
           <Input id="user-register" placeholder='Ex: John Doe'/>
           <Button onClick={stageTwo} className='button-register' variant={'secondary'}>Create Account</Button>
         </div>
+      </div>
+      <div id="toastAuth">
+        <h1 id='waveringElement'>Your account is being created. Hold on a moment!</h1>
       </div>
     </div>
   )

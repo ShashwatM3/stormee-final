@@ -13,6 +13,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -48,6 +49,49 @@ function Nav() {
       setFeatures(data[0].Features);
     }
   }
+
+  async function setNewTargetAudience() {
+    const el = document.getElementById("newTargetAudience");
+    if(el && el.value>3 && email>3) {
+      document.getElementById("loadingToast").style.display="flex";
+
+      const { data, error } = await supabase
+      .from('Users')
+      .update({ Target_Audience: el.value}) // values to update
+      .eq('email', email)
+
+      console.log(error);
+
+      // List all the tables you want to delete from
+      const tables = [
+        'competitive_edge_metric',
+        'current_competitors',
+        'graveyard',
+        'market_demand',
+        'personas',
+        'target_audience'
+      ];
+
+      // Create an array of delete promises
+      const deletePromises = tables.map(table =>
+        supabase.from(table).delete().eq('email', email)
+      );
+
+      // Run all deletes in parallel
+      const results = await Promise.all(deletePromises);
+
+      // Optionally, check for errors
+      results.forEach(({ error }, idx) => {
+        if (error) {
+          console.error(`Error deleting from ${tables[idx]}:`, error);
+        }
+      });
+
+    } else {
+      console.log(el.value);
+      console.log(email);
+    }
+  }
   
   // Initialize local state with session values when session is available
   useEffect(() => {
@@ -65,6 +109,9 @@ function Nav() {
         <Image src={rocket} alt=""/>
         Stormee AI
       </h1>
+      <div id="loadingToast">
+        <h3 id='waveringElement'>Loading...</h3>
+      </div>
       {(pathname.includes("/Home")) ? (
         <React.Fragment>
           <div>
@@ -135,7 +182,7 @@ function Nav() {
                 <h3>{targetaudience}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  {/* <Dialog>
+                  <Dialog>
                     <DialogTrigger asChild>
                       <Button className='dark'>Edit</Button>
                     </DialogTrigger>
@@ -146,15 +193,28 @@ function Nav() {
                           Once you edit your target audience, your competitive landscape & validation dashboard will be <b>revamped</b>. <b>This action cannot be undone</b>
                         </DialogDescription>
                         <div id="ta-div">
-                          <span className='mt-3'>Current Target Audience: </span>
-                          <Textarea value={targetaudience} readOnly/><br/>
-                          <span className='mt-3 font-bold'>New Target Audience: </span>
-                          <Textarea id="newTargetAudience"/>
-                          <Button onClick={() => {setNewTargetAudience}}>Set Target Audience</Button>
+                          <h3 className='mt-3 mb-2'>Current Target Audience: </h3>
+                          <Textarea value={targetaudience} readOnly/>
+                          <h3 className='mt-3 font-bold mb-2'>New Target Audience: </h3>
+                          <Textarea id="newTargetAudience"/><br/>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button>Set Target Audience</Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                              <DialogHeader>
+                                <DialogTitle>Are you sure?</DialogTitle>
+                                <DialogDescription>This will revamp your complete MVP Dashboard (Validation Dashboard + Competitor Insights)</DialogDescription>
+                              </DialogHeader>
+                              <DialogFooter asChild>
+                                <Button onClick={() => {setNewTargetAudience}}>Proceed</Button>
+                              </DialogFooter>
+                            </DialogContent>
+                          </Dialog>
                         </div>
                       </DialogHeader>
                     </DialogContent>
-                  </Dialog> */}
+                  </Dialog>
                 </div>
               </div>
               <div className='idea-component'>
@@ -162,7 +222,7 @@ function Nav() {
                 <h3>{problemstatement}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  {/* <Button className='dark'>Edit</Button> */}
+                  <Button className='dark'>Edit</Button>
                 </div>
               </div>
               <div className='idea-component'>
@@ -170,7 +230,7 @@ function Nav() {
                 <h3>{features}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  {/* <Button className='dark'>Edit</Button> */}
+                  <Button className='dark'>Edit</Button>
                 </div>
               </div>
               <div className='idea-component'>
@@ -178,7 +238,7 @@ function Nav() {
                 <h3>{uniqueness}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  {/* <Button className='dark'>Edit</Button> */}
+                  <Button className='dark'>Edit</Button>
                 </div>
               </div>
               {/* <div className='idea-component'>

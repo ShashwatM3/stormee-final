@@ -119,3 +119,17 @@
 #stage-two {
   display: none;
 }
+
+#toastAuth {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(26, 26, 26);
+  border: 1px solid rgb(81, 81, 81);
+  display: none;
+}
