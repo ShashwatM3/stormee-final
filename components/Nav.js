@@ -182,7 +182,7 @@ function Nav() {
                 <h3>{targetaudience}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  <Dialog>
+                  {/* <Dialog>
                     <DialogTrigger asChild>
                       <Button className='dark'>Edit</Button>
                     </DialogTrigger>
@@ -214,7 +214,7 @@ function Nav() {
                         </div>
                       </DialogHeader>
                     </DialogContent>
-                  </Dialog>
+                  </Dialog> */}
                 </div>
               </div>
               <div className='idea-component'>
@@ -222,7 +222,7 @@ function Nav() {
                 <h3>{problemstatement}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  <Button className='dark'>Edit</Button>
+                  {/* <Button className='dark'>Edit</Button> */}
                 </div>
               </div>
               <div className='idea-component'>
@@ -230,7 +230,7 @@ function Nav() {
                 <h3>{features}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  <Button className='dark'>Edit</Button>
+                  {/* <Button className='dark'>Edit</Button> */}
                 </div>
               </div>
               <div className='idea-component'>
@@ -238,7 +238,7 @@ function Nav() {
                 <h3>{uniqueness}</h3>
                 <div className='flex items-center justify-between'>
                   <span></span>
-                  <Button className='dark'>Edit</Button>
+                  {/* <Button className='dark'>Edit</Button> */}
                 </div>
               </div>
               {/* <div className='idea-component'>
