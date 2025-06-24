@@ -170,9 +170,11 @@ function BusinessMain() {
       2. Avoid using the em dash (—) in your generated content
       3. Ensure high relevance to the user's idea: Each failed company must have attempted a product or solution that is meaningfully similar in audience, market, or value proposition. Do not mention unknown startups/companies.
       4. Geographic location must be country-level or regionally specific
-      5. **Funding stage must be based on publicly known funding levels** or "Unknown" if the data is not accessible.
-      6. **Never fabricate information**: If credible data is not available for a field, return "Unknown" for that field
-      7. DO NOT REPEAT ANY SOURCES. THIS IS A STRICT RULE.
+      5. Focus majority of the competitors on around the specific geographic region mentioned in user's idea (only if mentioned)
+      6. Focus on majorly delivering competitors that are close to the current year.
+      7. **Funding stage must be based on publicly known funding levels** or "Unknown" if the data is not accessible.
+      8. **Never fabricate information**: If credible data is not available for a field, return "Unknown" for that field
+      9. DO NOT REPEAT ANY SOURCES. THIS IS A STRICT RULE.
       `)
 
       const start = resp.indexOf('{');
@@ -309,6 +311,8 @@ function BusinessMain() {
           - Stick strictly to the JSON format.
           - Avoid using the em dash (—) in your generated content
           - Each company must have attempted a product or solution that is meaningfully similar in audience, market, or value proposition. Do not mention unknown startups/companies.
+          - Focus majority of the competitors on around the specific geographic region mentioned in user's idea (only if mentioned)
+          - Focus on majorly delivering competitors that are close to the current year.
           - Maintain **2–3 sentence** limits for description, 'differentiator', and 'key_insight'.
           - Ensure all data is credible. If a field is unverifiable, omit the entry.
           - Sources must be cited as shown — no fabrication allowed.
