@@ -443,11 +443,11 @@ function BusinessMain() {
     return <div>Loading session...</div>;
   }
 
-  if (isLoading || isLoadingCurrent) {
-    return (<div className='flex items-center justify-center w-[100vw] h-[100vh]'>
-      <span id="waveringElement">Loading your dashboard data...</span>
-    </div>);
-  }
+  // if (isLoading || isLoadingCurrent) {
+  //   return (<div className='flex items-center justify-center w-[100vw] h-[100vh]'>
+  //     <span id="waveringElement">Loading your dashboard data...</span>
+  //   </div>);
+  // }
 
   return (
     <div className='business-canvas'>
@@ -538,7 +538,7 @@ function BusinessMain() {
                     />
                     )
                   })}
-                  <Card className="bg-neutral-900 min-h-[60vh] border-neutral-800 text-white p-6 rounded-2xl shadow-lg max-w-xl mb-3 text-left">
+                  <Card className="bg-neutral-900 min-h-[60vh] border-neutral-800 text-white p-6 rounded-2xl shadow-lg w-full mb-3 text-left">
                     <h2 className="text-2xl font-bold mb-2 font-light italic">{"Sources of Information"}</h2>
                     <p className="text-gray-300 text-sm mb-2 italic">We provide you with the sources of information that support our competitive landscape report</p>
 
