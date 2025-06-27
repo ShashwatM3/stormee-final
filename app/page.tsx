@@ -13,7 +13,9 @@ import TLDR from "@/components/TLDR";
 import NPD from "@/components/NPD";
 import GotAnidea from "@/components/GotAnidea"
 import FeatureMap from "@/components/FeatureMap"
+import Banner2 from "@/components/Banner2";
 import Unique from "@/components/Unique";
+import ProductVid from "@/components/ProductVid"
 
 export default function Home() {
   const router = useRouter();
@@ -42,7 +44,9 @@ export default function Home() {
     </div>
     <div id="main">
       <Nav/>
-      <Banner/>
+      {/* <Banner/> */}
+      <Banner2/>
+      {/* <ProductVid/><br/><br/> */}
       <TLDR/>
       <HIW/>
       <NPD/><br/><br/><br/>

@@ -6,25 +6,23 @@ Todos:
   ✔ Fix the competitive edge metric dashboard @done(25-06-07 11:29)
   ✔ Add "view sources" button next to "Back to Validation Engine" @done(25-06-07 11:29)
   ✔ Format text of Investor, Product, Tech @done(25-06-07 11:29)
-  ☐ Make the "edge metrics", "deep markers", etc, into TWO LINES ONLY (re-prompt basically)
+  ✔ Make the "edge metrics", "deep markers", etc, into TWO LINES ONLY (re-prompt basically) @done(25-06-26 00:49)
   ☐ Get refine idea to work
 
 Small notes:
-  ☐ Name of idea. How do we incorporate?
   ✔ Dynamic business components based on whether user has paid or not @done(25-05-06 11:01)
-  ☐ Making Target Audience much more detailed (and smaller)
+  ✔ Making Target Audience much more detailed (and smaller) @done(25-06-26 00:49)
     Or just say that more specifics are in Market Analysis
   ✔ Figure out content display => CONVERTING CHATGPT FORMAT TO NORMAL READABLE FORMAT @done(25-05-03 21:40)
-  ☐ Remove any hints of text being AI-Generated
+  ✔ Remove any hints of text being AI-Generated @done(25-06-26 00:50)
   ✔ Consider MAKING ONE SINGLE PROMPT FOR EXECUTIVE SUMMARY @done(25-05-05 15:09)
-  ☐ Add icon to Muse AI
 
 Once you have finished above and below, and I mean FINISH:
-  ☐ Post on X
+  ✔ Post on X @done(25-06-26 00:50)
   ☐ Start preparing for ProductHunt
 
 Todos for Launch:
-  ☐ Make profile work
+  ✔ Make profile work @done(25-06-26 00:50)
   ☐ Make Google Login work
   ☐ Exporting to Google Docs
   ☐ Remove any 'console logs' and cleanup

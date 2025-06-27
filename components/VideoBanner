@@ -1,0 +1,44 @@
+'use client';
+
+import { useRef, useState } from 'react';
+
+export default function VideoBanner() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (!isPlaying) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  return (
+    <div className="relative w-full h-[500px] overflow-hidden rounded-xl shadow-lg">
+      <video
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        src="/mainvid.mp4"
+        muted
+        playsInline
+      />
+      {!isPlaying && (
+        <button
+          onClick={handlePlay}
+          className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition"
+        >
+          <div className="w-20 h-20 bg-green-400 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-10 h-10 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
