@@ -39,11 +39,12 @@ function BusinessCanvas() {
     const { error } = await supabase
       .from('Users')
       .update({
-        Idea: oneliner,
-        Target_Audience: targaud,
-        Problem: probSt,
-        Unique: usp,
-        Features: feat,
+        Idea: (oneliner == "" ? userData[0]?.Idea : oneliner),
+        Target_Audience: (targaud == "" ? userData[0]?.Target_Audience : targaud),
+        Problem: (probSt == "" ? userData[0]?.Problem : probSt),
+        Unique: (usp == "" ? userData[0]?.Unique : usp),
+        Features: (feat == "" ? userData[0]?.Features : feat),
+        modifiedAndUpdated: "No"
       })
       .eq('email', session.user?.email);
 
@@ -178,19 +179,18 @@ function BusinessCanvas() {
         </div>
 
         {userData.length>0 && (
-          <div className='flex items-center justify-center gap-2 mt-4'>
-            {/* <Button onClick={() => {router.push("/Home")}} className='dark'>Continue:<span className='font-bold'>MVP Dashboard</span></Button> */}
+          <div className='flex items-center justify-center gap-2 mt-7'>
             <Button onClick={() => {
               const el = document.getElementById("profile-main");
               if(el) {
                 el.style.display="flex";
               }
-            }} className='dark px-10 mt-3' variant='secondary'>View Current Idea</Button>
-            {/* <Sheet>
+            }} className='dark px-10' variant='secondary'>View Current Idea</Button>
+            <Sheet>
               <SheetTrigger asChild>
                 <Button className='dark' variant='secondary'>Refine Idea</Button>
               </SheetTrigger>
-              <SheetContent className='dark p-5 pt-10'>
+              <SheetContent className='dark p-5 pt-10 h-full overflow-scroll'>
                 <SheetHeader className='form-idea' id="form-idea">
                   <SheetTitle className='text-xl border-b pb-4 border-neutral-600'>Describe your idea</SheetTitle><br/>
                   <h3 className='mb-2'>Refine your one-line startup idea</h3>
@@ -247,7 +247,7 @@ function BusinessCanvas() {
                 </SheetHeader>
                 <SheetClose id="sheet-close">Close</SheetClose>
               </SheetContent>
-            </Sheet> */}
+            </Sheet>
           </div>
         )}
       </div>

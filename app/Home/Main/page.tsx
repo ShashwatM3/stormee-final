@@ -28,6 +28,7 @@ function Page() {
     End_To_End: string,
     final: string,
     location: string,
+    modifiedAndUpdated: string,
   };  
 
   const router = useRouter();

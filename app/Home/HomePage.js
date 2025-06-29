@@ -296,6 +296,7 @@ function HomePage() {
         Problem: probSt,
         Unique: usp,
         Features: feat,
+        modifiedAndUpdated: "No"
       })
       .eq('email', session.user?.email);
 
@@ -430,68 +431,6 @@ function HomePage() {
             </Card>
           </div>
           <div className='flex items-center justify-center gap-2'>
-            {/* <Sheet>
-              <SheetTrigger asChild>
-                <Button className='dark cursor-pointer py-1' variant='secondary'>Refine Idea</Button>
-              </SheetTrigger>
-              <SheetContent className='dark p-5 pt-10'>
-                <SheetHeader className='form-idea' id="form-idea">
-                  <SheetTitle className='text-xl border-b pb-4 border-neutral-600'>Describe your idea</SheetTitle><br/>
-                  <h3 className='mb-2'>Refine your one-line startup idea</h3>
-                  <Textarea 
-                    onChange={(e) => {
-                      setOneLiner(e.target.value);
-                    }} 
-                    value={oneliner || userData[0]?.Idea} 
-                    id="form1-1" 
-                    className='mb-4'
-                  />
-
-                  <h3 className='mb-2'>Refine your problem statement</h3>
-                  <Textarea 
-                    onChange={(e) => {
-                      setProbSt(e.target.value);
-                    }}
-                    value={probSt || userData[0]?.Problem} 
-                    id="form2-1" 
-                    className='mb-4'
-                  />
-
-                  <h3 className='mb-2'>Refine your primary target audience</h3>
-                  <Textarea 
-                    onChange={(e) => {
-                      setTargAud(e.target.value);
-                    }}
-                    value={targaud || userData[0]?.Target_Audience} 
-                    id="form3-1" 
-                    className='mb-4'
-                  />
-
-                  <h3 className='mb-2'>Refine your USP (What makes your product unique)</h3>
-                  <Textarea 
-                    onChange={(e) => {
-                      setUSP(e.target.value);
-                    }}
-                    value={usp || userData[0]?.Unique} 
-                    id="form4-1" 
-                    className='mb-4'
-                  />
-
-                  <h3 className='mb-2'>Refine what features your product offers</h3>
-                  <Textarea 
-                    onChange={(e) => {
-                      setFeat(e.target.value);
-                    }}
-                    value={feat || userData[0]?.Features} 
-                    id="form5-1" 
-                    className='mb-4'
-                  />
-
-                  <Button onClick={handleIdeaRefine} className='w-full'>Submit</Button>
-                </SheetHeader>
-                <SheetClose id="sheet-close">Close</SheetClose>
-              </SheetContent>
-            </Sheet> */}
 
             <Dialog>
               <DialogTrigger asChild>
@@ -508,15 +447,77 @@ function HomePage() {
                     ))}
                   </DialogDescription>
                 </DialogHeader>
-                {/* <DialogFooter>
-                  <div className='w-[100%] flex flex-wrap gap-2 flex items-center justify-center'>
+                <DialogFooter>
+                  {/* <div className='w-[100%] flex flex-wrap gap-2 flex items-center justify-center'>
                   <Button className='dark' variant='outline'>Edit Idea</Button>
                   <Button className='dark' variant='outline'>Edit Target Aud.</Button>
                   <Button className='dark' variant='outline'>Edit Problem St.</Button>
                   <Button className='dark' variant='outline'>Edit UVP</Button>
                   <Button className='dark' variant='outline'>Edit Features</Button>
-                  </div>
-                </DialogFooter> */}
+                  </div> */}
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <Button className='dark cursor-pointer py-1' variant='secondary'>Edit Idea</Button>
+                    </SheetTrigger>
+                    <SheetContent className='dark p-5 pt-10 h-full overflow-scroll'>
+                      <SheetHeader className='form-idea' id="form-idea">
+                        <SheetTitle className='text-xl border-b pb-4 border-neutral-600'>Describe your idea</SheetTitle><br/>
+                        <h3 className='mb-2'>Refine your one-line startup idea</h3>
+                        <Textarea 
+                          onChange={(e) => {
+                            setOneLiner(e.target.value);
+                          }} 
+                          value={oneliner || userData[0]?.Idea} 
+                          id="form1-1" 
+                          className='mb-4'
+                        />
+
+                        <h3 className='mb-2'>Refine your problem statement</h3>
+                        <Textarea 
+                          onChange={(e) => {
+                            setProbSt(e.target.value);
+                          }}
+                          value={probSt || userData[0]?.Problem} 
+                          id="form2-1" 
+                          className='mb-4'
+                        />
+
+                        <h3 className='mb-2'>Refine your primary target audience</h3>
+                        <Textarea 
+                          onChange={(e) => {
+                            setTargAud(e.target.value);
+                          }}
+                          value={targaud || userData[0]?.Target_Audience} 
+                          id="form3-1" 
+                          className='mb-4'
+                        />
+
+                        <h3 className='mb-2'>Refine your USP (What makes your product unique)</h3>
+                        <Textarea 
+                          onChange={(e) => {
+                            setUSP(e.target.value);
+                          }}
+                          value={usp || userData[0]?.Unique} 
+                          id="form4-1" 
+                          className='mb-4'
+                        />
+
+                        <h3 className='mb-2'>Refine what features your product offers</h3>
+                        <Textarea 
+                          onChange={(e) => {
+                            setFeat(e.target.value);
+                          }}
+                          value={feat || userData[0]?.Features} 
+                          id="form5-1" 
+                          className='mb-4'
+                        />
+
+                        <Button onClick={handleIdeaRefine} className='w-full'>Submit</Button>
+                      </SheetHeader>
+                      <SheetClose id="sheet-close">Close</SheetClose>
+                    </SheetContent>
+                  </Sheet>
+                </DialogFooter>
               </DialogContent>
             </Dialog>
           </div>

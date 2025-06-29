@@ -110,13 +110,18 @@ function Authentication() {
                 Stage: "Tutorial",
                 final: "",
                 location: "",
+                modifiedAndUpdated: "na",
               });
               toast.success("Welcome to Stormee AI!");
 
               if (error) {
                 toast.error(error);
               } else {
-                document.getElementById("toastAuth").style.display="none";
+                try {
+                  document.getElementById("toastAuth").style.display="none";
+                } catch(err) {
+                  console.log(err);
+                }
               }
             }
           } catch (supabaseError) {

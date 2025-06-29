@@ -15,8 +15,9 @@
 /* Video Banner Styles */
 .video-banner {
   position: relative;
-  width: 1000px;
-  height: 720px;
+  width: 95vw;
+  border: 1px solid rgb(46, 46, 46);
+  height: 80vh;
   cursor: pointer;
   border-radius: 12px;
   overflow: hidden;

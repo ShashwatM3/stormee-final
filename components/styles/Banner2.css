@@ -1,6 +1,6 @@
 .banner-main {
-  background: url("/banner.png");
-  min-height: 160vh;
+  background: black;
+  min-height: 150vh;
   width: 100vw;
   background-size: cover;
   /* margin-bottom: 10vh; */
@@ -21,7 +21,7 @@
   font-size: 7vh;
   margin-bottom: 20px;
   line-height: 110%;
-  font-weight: 200;
+  font-weight: 800;
   letter-spacing:0cap;
   font-family: "Montserrat", sans-serif;
 }

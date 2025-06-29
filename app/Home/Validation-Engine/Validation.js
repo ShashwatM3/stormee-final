@@ -37,6 +37,7 @@ import {
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 function Validation() {
   // const [marketDemand, setMarketDemand] = useState("");
@@ -101,6 +102,8 @@ function Validation() {
   const [targetAudienceRedFlags, setTargetAudienceRedFlags] = useState("");
   const [targetAudienceOptimization, setTargetAudienceOptimization] = useState("");
   const [targetAudienceSources, setTargetAudienceSources] = useState("");
+
+  const [modifiedAndUpdated, setModifiedAndUpdated] = useState("");
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -213,7 +216,7 @@ function Validation() {
   };
 
   async function checkMarketDemand(data2, userEmail) {
-    console.log("Checking market demand.....");
+    // console.log("Checking market demand.....");
     const { data, error } = await supabase
       .from('market_demand')
       .select()
@@ -224,7 +227,7 @@ function Validation() {
     }
 
     if (data && data.length > 0) {
-      console.log("Getting stuff for Market Demand")
+      // console.log("Getting stuff for Market Demand")
       setMarketDemandSummary(data[0].tldr);
       setMarketDemandScore(data[0].score);
       setMarketDemandIndicators(data[0].indicators);
@@ -232,7 +235,7 @@ function Validation() {
       setMarketDemandOptimization(data[0].optimization);
       setMarketDemandSources(data[0].sources);
       setMarketDemandCheck(true);
-      console.log("it's already there - Market Demand")
+      // console.log("it's already there - Market Demand")
     } else {
       console.log("Writing prompt for Market Demand")
       const resp = await simpleGPTResp(`
@@ -264,7 +267,7 @@ function Validation() {
       let parsed;
       try {
         parsed = JSON.parse(jsonString);
-        console.log("market demand generated: ", parsed);
+        // console.log("market demand generated: ", parsed);
       } catch (e) {
         console.error("Failed to parse GPT reply:", resp);
         toast.error("GPT sent a bad response. Try again.");
@@ -315,7 +318,7 @@ function Validation() {
   }
   
   async function checkCompetitiveEdge(data2, userEmail) {
-    console.log("Checking competitive edge.....");
+    // console.log("Checking competitive edge.....");
     const { data, error } = await supabase
       .from('competitive_edge_metric')
       .select()
@@ -326,7 +329,7 @@ function Validation() {
     }
 
     if (data && data.length > 0) {
-      console.log("Getting stuff for Competitive Edge")
+      // console.log("Getting stuff for Competitive Edge")
       setCompetitiveEdgeSummary(data[0].tldr);
       setCompetitiveEdgeScore(data[0].score);
       setCompetitiveEdgeMetrics(data[0].audience);
@@ -334,7 +337,7 @@ function Validation() {
       setCompetitiveEdgeOptimization(data[0].optimization);
       setCompetitiveEdgeSources(data[0].sources);
       setCompetitiveEdgeCheck(true);
-      console.log("it's already there - Competitive Edge")
+      // console.log("it's already there - Competitive Edge")
     } else {
       const resp = await simpleGPTResp(`
         You are a brutally honest Competitive Edge Analyst. Evaluate whether the startup idea below truly has a differentiated edge in the competitive landscape.
@@ -365,7 +368,7 @@ function Validation() {
       let parsed;
       try {
         parsed = JSON.parse(jsonString);
-        console.log("competitive edge generated: ", parsed);
+        // console.log("competitive edge generated: ", parsed);
       } catch (e) {
         console.error("Failed to parse GPT reply:", resp);
         toast.error("GPT sent a bad response. Try again.");
@@ -407,7 +410,7 @@ function Validation() {
   }
 
   async function checkTargetAudience(data2, userEmail) {
-    console.log("Checking target audience.....");
+    // console.log("Checking target audience.....");
     const { data, error } = await supabase
       .from('target_audience')
       .select()
@@ -418,7 +421,7 @@ function Validation() {
     }
 
     if (data && data.length > 0) {
-      console.log("Getting stuff for Target Audience")
+      // console.log("Getting stuff for Target Audience")
       setTargetAudienceSummary(data[0].tldr);
       setTargetAudienceScore(data[0].score);
       setTargetAudienceEmpathyMarkers(data[0].deep_markers);
@@ -427,9 +430,9 @@ function Validation() {
       setTargetAudienceSources(data[0].sources);
 
       setTargetAudienceCheck(true);
-      console.log("it's already there - Target Audience")
+      // console.log("it's already there - Target Audience")
     } else {
-      console.log("Writing prompt for TA")
+      // console.log("Writing prompt for TA")
       const resp = await simpleGPTResp(`
         You are a brutally honest Target Audience Clarity Validator. Analyze how clearly the startup idea below understands and connects with its audience.
         Idea: ${data2[0].Idea}
@@ -459,7 +462,7 @@ function Validation() {
       let parsed;
       try {
         parsed = JSON.parse(jsonString);
-        console.log("target audience generated: ", parsed);
+        // console.log("target audience generated: ", parsed);
       } catch (e) {
         console.error("Failed to parse GPT reply:", resp);
         toast.error("GPT sent a bad response. Try again.");
@@ -502,7 +505,7 @@ function Validation() {
   }
 
   async function checkPersonas(data2, userEmail) {
-    console.log("Checking personas.....");
+    // console.log("Checking personas.....");
     const { data, error } = await supabase
       .from('personas')
       .select()
@@ -513,8 +516,8 @@ function Validation() {
     }
 
     if (data && data.length > 0) {
-      console.log("Getting stuff for Personas")
-      console.log(data[0])
+      // console.log("Getting stuff for Personas")
+      // console.log(data[0])
       setInvestorPersonaScore(data[0].investor_persona_score);
       setInvestorPersonaLabel(data[0].investor_persona_label);
       setInvestorPersonaFeedback(data[0].investor_persona_feedback);
@@ -536,9 +539,9 @@ function Validation() {
       setInvestorPersonaCheck(true);
       setProductManagerPersonaCheck(true);
       setTechLeadPersonaCheck(true);
-      console.log("it's already there - Personas")
+      // console.log("it's already there - Personas")
     } else {
-      console.log("Typing prompt (personas)")
+      // console.log("Typing prompt (personas)")
       const resp1 = await simpleGPTResp(`
         You are an experienced startup investor evaluating an early-stage idea:
 
@@ -559,7 +562,7 @@ function Validation() {
 
         Strict Guidelines: Be brutally honest and realistic. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
-      console.log("Prompt 1 DONE WOOHOO")
+      // console.log("Prompt 1 DONE WOOHOO")
 
       const resp2 = await simpleGPTResp(`
         You are a seasoned product manager reviewing a new product idea:
@@ -581,7 +584,7 @@ function Validation() {
 
         Strict Guidelines: Be direct and unfiltered. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and powerful. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
-      console.log("Prompt 2 DONE WOOHOO")
+      // console.log("Prompt 2 DONE WOOHOO")
 
       const resp3 = await simpleGPTResp(`
         You are a technical lead assessing the technical side of a product idea:
@@ -603,7 +606,7 @@ function Validation() {
 
         Strict Guidelines: Be honest and concise. Avoid using the em dash (—) in your generated content. Do NOT use [1], [2], or similar citation brackets in the text. Each feedback point must be under 10 words and direct. Strictly produce only a JSON Format. Do not put any extra quotations or text behind and after the json. URL for each source must be complete, starting with the protocol (e.g., https://) and including all parts up to the parameters at the end.
       `);
-      console.log("got prompts yayy (personas)")
+      // console.log("got prompts yayy (personas)")
 
       let parsed1, parsed2, parsed3;
 
@@ -612,19 +615,19 @@ function Validation() {
         const end1 = resp1.lastIndexOf('}');
         const jsonString1 = resp1.substring(start1, end1 + 1);
         parsed1 = JSON.parse(jsonString1);
-        console.log("investor persona generated: ", parsed1);
+        // console.log("investor persona generated: ", parsed1);
 
         const start2 = resp2.indexOf('{');
         const end2 = resp2.lastIndexOf('}');
         const jsonString2 = resp2.substring(start2, end2 + 1);
         parsed2 = JSON.parse(jsonString2);
-        console.log("product manager persona generated: ", parsed2);
+        // console.log("product manager persona generated: ", parsed2);
 
         const start3 = resp3.indexOf('{');
         const end3 = resp3.lastIndexOf('}');
         const jsonString3 = resp3.substring(start3, end3 + 1);
         parsed3 = JSON.parse(jsonString3);
-        console.log("tech lead persona generated: ", parsed3);
+        // console.log("tech lead persona generated: ", parsed3);
       } catch (e) {
         console.error("Failed to parse GPT reply:", e);
         toast.error("GPT sent a bad response. Try again.");
@@ -703,6 +706,7 @@ function Validation() {
       setTargAud(data[0].Target_Audience || '');
       setUSP(data[0].Unique || '');
       setFeat(data[0].Features || '');
+      setModifiedAndUpdated(data[0].modifiedAndUpdated);
 
       // Run all checks in parallel
       await Promise.all([
@@ -753,6 +757,66 @@ function Validation() {
     }
   }
 
+  async function regenerateDashboard() {
+    const el = document.getElementById("modified-changes")
+    if(el) { el.innerHTML="Loading..." }
+    
+    try {
+      // Define all tables to delete from
+      const tablesToDelete = [
+        'competitive_edge_metric',
+        'current_competitors', 
+        'graveyard',
+        'market_demand',
+        'personas',
+        'target_audience'
+      ];
+
+      // Delete from all tables in parallel for better performance
+      const deletePromises = tablesToDelete.map(table => 
+        supabase
+          .from(table)
+          .delete()
+          .eq('email', session.user.email)
+      );
+
+      const deleteResults = await Promise.all(deletePromises);
+      
+      // Check for any deletion errors
+      const errors = deleteResults
+        .map((result, index) => result.error ? { table: tablesToDelete[index], error: result.error } : null)
+        .filter(error => error !== null);
+
+      if (errors.length > 0) {
+        console.error("Errors during deletion:", errors);
+        toast.error("Some data couldn't be deleted. Please try again.");
+        if(el) { el.innerHTML="Error occurred. Click to retry." }
+        return;
+      }
+
+      // Update user's final status to trigger re-generation
+      const { error: updateError } = await supabase
+        .from('Users')
+        .update({ modifiedAndUpdated: "na" })
+        .eq('email', session.user.email);
+
+      if (updateError) {
+        console.error("Error updating user status:", updateError);
+        toast.error("Failed to reset user status");
+        if(el) { el.innerHTML="Error occurred. Click to retry." }
+        return;
+      } else {
+        alert("Everything's fine")
+        router.push("/Home");
+      }
+
+    } catch (error) {
+      console.error("Error in regenerateDashboard:", error);
+      toast.error("Failed to regenerate dashboard. Please try again.");
+      if(el) { el.innerHTML="Error occurred. Click to retry." }
+    }
+  }
+
   return (
     <>
     {marketDemandCheck && targetAudienceCheck && competitiveEdgeCheck && 
@@ -765,7 +829,16 @@ function Validation() {
       <div id="validation-main" className='validation-main'>
       <div>
         <h1 className='validationTitle scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2'>Your Validation Engine</h1>
-        <h3 className='mb-4'>View your validation metrics + persona feedback</h3>
+        <h3 className='mb-4'>View your validation metrics + field-wise feedback</h3>
+
+        {modifiedAndUpdated.trim()=="No" && (
+          <Alert variant="destructive" className='dark cursor-pointer flex items-center justify-center' onClick={() => {regenerateDashboard()}}>
+            {/* <AlertTitle>Heads up!</AlertTitle> */}
+            <AlertDescription>
+              <span id="modified-changes">You have modified your idea. Click here to re-generate your validation dashboard to match your current modified idea.</span>
+            </AlertDescription>
+          </Alert>
+        )}
         <div className='flex items-center w-[90vw] metrics-validate'>
           
           {/* -------------------------------------------------------------------------- */}
